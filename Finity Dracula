@@ -31,7 +31,7 @@ finity.theme = { -- light
 	category_button_border = Color3.fromRGB(68, 71, 90),
 
 	checkbox_checked = Color3.fromRGB(241, 250, 140),
-	checkbox_outer = Color3.fromRGB(98, 114, 164),
+	checkbox_outer = Color3.fromRGB(68, 71, 90),
 	checkbox_inner = Color3.fromRGB(68, 71, 90),
 
 	slider_color = Color3.fromRGB(241, 250, 140),
