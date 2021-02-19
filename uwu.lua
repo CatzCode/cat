@@ -18,7 +18,7 @@ local gamelist = {
     [1962086868] = "towerofmeow",
     [5977280685] = "cattolegends",
     [537413528] = "buildcatnipforcatto",
-    [4169490976] = "mortemthecat".
+    [4169490976] = "mortemthecat",
     [914010731] = "RoCat"
 }
 
