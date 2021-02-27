@@ -235,7 +235,7 @@ function boxBase:Update()
 
             self.Components.Health.Visible = true
             self.Components.Health.Position = Vector2.new(TagPos.X, TagPos.Y + 28)
-            self.Components.Health.Text = self.Character.Humanoid.MaxHealth
+            self.Components.Health.Text = self.Humanoid.MaxHealth
             self.Components.Health.Color = color
         else
             self.Components.Name.Visible = false
