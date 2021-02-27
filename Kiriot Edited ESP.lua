@@ -235,7 +235,7 @@ function boxBase:Update()
 
             self.Components.Health.Visible = true
             self.Components.Health.Position = Vector2.new(TagPos.X, TagPos.Y + 28)
-            self.Components.Health.Text = self.Humanoid.MaxHealth
+            self.Components.Health.Text = self.Health
             self.Components.Health.Color = color
         else
             self.Components.Name.Visible = false
@@ -271,6 +271,7 @@ function ESP:Add(obj, options)
 
     local box = setmetatable({
         Name = options.Name or obj.Name,
+        Health = obj.Character.Humanoid.MaxHealth,
         Type = "Box",
         Color = options.Color --[[or self:GetColor(obj)]],
         Size = options.Size or self.BoxSize,
