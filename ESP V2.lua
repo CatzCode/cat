@@ -3,7 +3,7 @@ local ESP = {
     Enabled = false,
     Boxes = true,
     BoxShift = CFrame.new(0,-1.5,0),
-	BoxSize = Vector3.new(4,6,0),
+    BoxSize = Vector3.new(6,8,0),
     Color = Color3.fromRGB(179,38,229),
     FaceCamera = false,
     Names = true,
@@ -230,7 +230,7 @@ function boxBase:Update()
             self.Components.VisibleCheck.Position = Vector2.new(TagPos.X, TagPos.Y)
             self.Components.VisibleCheck.Color = color
 
-            if inlos(self.CheckVisible, self.Character) then
+            if inlos(self.CheckVisible, box.CheckVisibleCharacter) then
                 self.Components.VisibleCheck.Text = "uwu - visible"
             else
                 self.Components.VisibleCheck.Text = "uwu - not visible"
@@ -287,9 +287,10 @@ function ESP:Add(obj, options)
     local box = setmetatable({
         Name = options.Name or obj.Name,
         CheckVisible = obj.HumanoidRootPart.Position,
+	CheckVisibleCharacter = obj,
         Health = tostring(obj.Humanoid.MaxHealth.."/"..obj.Humanoid.Health),
         Type = "Box",
-        Color = options.Color or self:GetColor(obj),
+        Color = options.Color,
         Size = options.Size or self.BoxSize,
         Object = obj,
         Player = options.Player or plrs:GetPlayerFromCharacter(obj),
@@ -321,6 +322,11 @@ function ESP:Add(obj, options)
         Visible = self.Enabled and self.Names
 	})
     box.Components["VisibleCheck"] = Draw("Text", {
+		if inlos(box.CheckVisible, box.CheckVisibleCharacter) then
+                	self.Components.VisibleCheck.Text = "uwu - visible"
+		else
+			self.Components.VisibleCheck.Text = "uwu - not visible"
+		end
 		Color = box.Color,
 		Center = true,
 		Outline = true,
@@ -328,6 +334,7 @@ function ESP:Add(obj, options)
         Visible = self.Enabled and self.Names
 	})
     box.Components["Health"] = Draw("Text", {
+		Text = box.Health,
 		Color = box.Color,
 		Center = true,
 		Outline = true,
