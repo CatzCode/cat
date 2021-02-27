@@ -23,7 +23,7 @@ local plrs = game:GetService("Players")
 local plr = plrs.LocalPlayer
 local mouse = plr:GetMouse()
 local function inlos(p, ...) -- In line of site?
-    return #cam:GetPartsObscuringTarget({p}, {cam, lp.Character, ...}) == 0
+    return #cam:GetPartsObscuringTarget({p}, {cam, plr.Character, ...}) == 0
 end
 
 local V3new = Vector3.new
