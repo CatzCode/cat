@@ -22,6 +22,9 @@ local cam = workspace.CurrentCamera
 local plrs = game:GetService("Players")
 local plr = plrs.LocalPlayer
 local mouse = plr:GetMouse()
+local function inlos(p, ...) -- In line of site?
+    return #cam:GetPartsObscuringTarget({p}, {cam, lp.Character, ...}) == 0
+end
 
 local V3new = Vector3.new
 local WorldToViewportPoint = cam.WorldToViewportPoint
@@ -223,26 +226,38 @@ function boxBase:Update()
         local TagPos, Vis5 = WorldToViewportPoint(cam, locs.TagPos.p)
         
         if Vis5 then
+            self.Components.VisibleCheck.Visible = true
+            self.Components.VisibleCheck.Position = Vector2.new(TagPos.X, TagPos.Y)
+            self.Components.VisibleCheck.Color = color
+
+            if inlos(self.CheckVisible, self.Character) then
+                self.Components.VisibleCheck.Text = "uwu - visible"
+            else
+                self.Components.VisibleCheck.Text = "uwu - not visible"
+            end
+
             self.Components.Name.Visible = true
-            self.Components.Name.Position = Vector2.new(TagPos.X, TagPos.Y)
+            self.Components.Name.Position = Vector2.new(TagPos.X, TagPos.Y + 14)
             self.Components.Name.Text = self.Name
             self.Components.Name.Color = color
             
             self.Components.Distance.Visible = true
-            self.Components.Distance.Position = Vector2.new(TagPos.X, TagPos.Y + 14)
+            self.Components.Distance.Position = Vector2.new(TagPos.X, TagPos.Y + 28)
             self.Components.Distance.Text = math.floor((cam.CFrame.p - cf.p).magnitude) .."m away"
             self.Components.Distance.Color = color
 
             self.Components.Health.Visible = true
-            self.Components.Health.Position = Vector2.new(TagPos.X, TagPos.Y + 28)
+            self.Components.Health.Position = Vector2.new(TagPos.X, TagPos.Y + 36)
             self.Components.Health.Text = self.Health
             self.Components.Health.Color = color
         else
+            self.Components.VisibleCheck.Visible = false
             self.Components.Name.Visible = false
             self.Components.Distance.Visible = false
             self.Components.Health.Visible = false
         end
     else
+        self.Components.VisibleCheck.Visible = false
         self.Components.Name.Visible = false
         self.Components.Distance.Visible = false
         self.Components.Health.Visible = false
@@ -271,9 +286,10 @@ function ESP:Add(obj, options)
 
     local box = setmetatable({
         Name = options.Name or obj.Name,
+        CheckVisible = self.HumanoidRootPart.Position,
         Health = tostring(obj.Humanoid.MaxHealth.."/"..obj.Humanoid.Health),
         Type = "Box",
-        Color = options.Color --[[or self:GetColor(obj)]],
+        Color = options.Color or self:GetColor(obj),
         Size = options.Size or self.BoxSize,
         Object = obj,
         Player = options.Player or plrs:GetPlayerFromCharacter(obj),
@@ -298,6 +314,13 @@ function ESP:Add(obj, options)
     })
     box.Components["Name"] = Draw("Text", {
 		Text = box.Name,
+		Color = box.Color,
+		Center = true,
+		Outline = true,
+        Size = 19,
+        Visible = self.Enabled and self.Names
+	})
+    box.Components["VisibleCheck"] = Draw("Text", {
 		Color = box.Color,
 		Center = true,
 		Outline = true,
