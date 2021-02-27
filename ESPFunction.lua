@@ -271,7 +271,7 @@ function ESP:Add(obj, options)
 
     local box = setmetatable({
         Name = options.Name or obj.Name,
-        Health = obj.Humanoid.MaxHealth,
+        Health = tostring(obj.Humanoid.MaxHealth.."/"..obj.Humanoid.Health),
         Type = "Box",
         Color = options.Color --[[or self:GetColor(obj)]],
         Size = options.Size or self.BoxSize,
