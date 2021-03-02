@@ -24,7 +24,7 @@ local gamelist = {
 
 for gameId,CatWare in pairs(gamelist) do
     if gameId == game.PlaceId then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/CatzCode/cat/main/'..CatWare..'.lua'))()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/CatzCode/cat/main/Games/'..CatWare..'.lua'))()
     end
 end
 
