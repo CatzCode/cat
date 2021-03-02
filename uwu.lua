@@ -14,13 +14,12 @@ Developed by falseopx#2012 and Vault#0001
 --]]
 
 local gamelist = {
-    [2041312716] = "fixedRagdoll",
-    [1962086868] = "towerofmeow",
-    [5977280685] = "cattolegends",
-    [537413528] = "buildcatnipforcatto",
-    [4169490976] = "mortemthecat",
-    [914010731] = "RoCat",
-    [2041312716] = "RagdollEngine"
+    [2041312716] = "CatdollEngine",
+    [1962086868] = "TowerOfMeow",
+    [5977280685] = "CattoLegends",
+    [537413528] = "BABFT",
+    [4169490976] = "MortemMecattum",
+    [914010731] = "CatGhoul"
 }
 
 for gameId,CatWare in pairs(gamelist) do
