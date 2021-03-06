@@ -2059,7 +2059,7 @@ do
 	end
 
     local player_ = game:GetService("Players").LocalPlayer
-    local mouse = player:GetMouse()
+    local mouse = player_:GetMouse()
 	
 	function section:updateSlider(slider, title, value, min, max, lvalue)
 		slider = self:getModule(slider)
