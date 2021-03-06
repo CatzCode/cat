@@ -5,6 +5,7 @@ local gamelist = {
     [537413528] = "BABFT",
     [4169490976] = "MortemMecattum",
     [914010731] = "CatGhoul"
+    [286090429] = "Arsenal"
 }
 
 for gameId,CatWare in pairs(gamelist) do
