@@ -4,7 +4,7 @@ local gamelist = {
     [5977280685] = "CattoLegends",
     [537413528] = "BABFT",
     [4169490976] = "MortemMecattum",
-    [914010731] = "CatGhoul"
+    [914010731] = "CatGhoul",
     [286090429] = "Arsenal"
 }
 
