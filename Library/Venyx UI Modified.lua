@@ -2057,6 +2057,9 @@ do
 			end
 		end
 	end
+
+    local player_ = game:GetService("Players").LocalPlayer
+    local mouse = player:GetMouse()
 	
 	function section:updateSlider(slider, title, value, min, max, lvalue)
 		slider = self:getModule(slider)
