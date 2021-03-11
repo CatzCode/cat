@@ -16,7 +16,7 @@ Join our Discord server: https://discord.gg/T9FSnPzSAV
 **useIess#0001 - Bot Developer | Contributor** <br/>
 **myxbimo#5592 - Bot Developer** <br/>
 
-# Cattoware script can be found down here
+# Script
 ```lua
 loadstring(game:HttpGet('https://raw.githubusercontent.com/CatzCode/cat/main/Cattoware.lua'))()
 ```
