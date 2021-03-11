@@ -8,7 +8,7 @@ Join our Discord server: https://discord.gg/T9FSnPzSAV
 - [x] Great Features
 - [x] Free 
 
-Made by **Developed by falseopx#2012, Vault#0001, Compwnter#5640 and keshiki#1749.**
+**Developed by falseopx#2012, Vault#0001, Compwnter#5640, keshiki#1749, useIess#0001, myxbimo#5592.**
 
 # Cattoware script can be found down here
 ```lua
