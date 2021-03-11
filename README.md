@@ -1,6 +1,5 @@
 # Cattoware
-<i>For the Top Cats.</i>
-Join our Discord server: https://discord.gg/T9FSnPzSAV
+<i>For the Top Cats.</i><br/>
 
 **__About__**
 - [x] High Quality
@@ -20,3 +19,5 @@ Join our Discord server: https://discord.gg/T9FSnPzSAV
 ```lua
 loadstring(game:HttpGet('https://raw.githubusercontent.com/CatzCode/cat/main/Cattoware.lua'))()
 ```
+<br/>
+Join our Discord server: https://discord.gg/T9FSnPzSAV
