@@ -31,9 +31,6 @@ local gamelist = {
     [537600204] = "ElementalOfCat",
     [570158081] = "ElementalOfCat",
     [2569625809] = "ElementalOfCat",
-    [3652625463] = "LiftingCat",
-    [3823781113] = "SaberCat",
-    [2202352383] = "SPTS"
 }
 
 for gameId,CatWare in pairs(gamelist) do
