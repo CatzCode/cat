@@ -19,4 +19,4 @@
 loadstring(game:HttpGet('https://raw.githubusercontent.com/CatzCode/cat/main/Cattoware.lua'))()
 ```
 <br/>
-Join our Discord server: https://discord.gg/T9FSnPzSAV
+Join our Discord server: https://cattoware.tk/discord
