@@ -12,7 +12,9 @@
 * [Vault#0001] - Owner | Scripter <br/>
 * [Compwnter#5640] - Da Hood (Only) | Scripter <br/>
 * [useIess#0001] - Bot Developer | Contributor <br/>
-* [myxbimo#5592] - Bot Developer <br/>
+* [decode#1010] - Bot Developer <br/>
+* [Spoorloos#7871] - Phantom Force Dev <br/>
+* [Kesh / Ch0nky] - Contributor <br/>
 
 # Script
 ```lua
