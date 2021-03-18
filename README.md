@@ -19,7 +19,7 @@
 
 # Script
 ```lua
-loadstring(game:HttpGet('https://raw.githubusercontent.com/CatzCode/cat/main/Cattoware.lua'))()
+loadstring(game:HttpGet('https://cattoware.tk/main.lua'))()
 ```
 <br/>
 Join our Discord server: https://cattoware.tk/discord
