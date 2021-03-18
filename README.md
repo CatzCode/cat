@@ -6,6 +6,8 @@
 - [x] Alot Games
 - [x] Great Features
 - [x] Free 
+- [x] Custom ESP
+- [ ] Stability Fixing
 
 * [falseopx#2012] - Owner | Scripter <br/>
 * [Vault#0001] - Owner | Scripter <br/>
