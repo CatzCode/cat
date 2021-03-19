@@ -1,3 +1,18 @@
+green   = Color3.new(0, 1, 0.498039)
+yellow  = Color3.new(1, 1, 0.498039)
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+    Text = "Welcome Cattori, "..game:GetService("Players").LocalPlayer.Name.."!",
+    Color = green,
+})
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+    Text = "Join the discord for more!",
+    Color = green,
+})
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+    Text = "cattoware.tk/discord",
+    Color = yellow,
+})
+
 function add(placeID, exec)
     if placeID == game.PlaceId then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/CatzCode/cat/main/Games/'..exec..'.lua'))()
