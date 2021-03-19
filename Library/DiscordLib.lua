@@ -82,7 +82,7 @@ local function MakeDraggable(topbarobject, object)
 end
 
 local Discord = Instance.new("ScreenGui")
-Discord.Name = "Discord"
+Discord.Name = "Cattori"
 Discord.Parent = game.CoreGui
 Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -287,7 +287,10 @@ function DiscordLib:Window(text)
 
 	CloseBtn.MouseButton1Click:Connect(
 		function()
-			MainFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+MainFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+wait(0.3)
+Discord:Destroy()
+
 		end
 	)
 
@@ -337,6 +340,33 @@ function DiscordLib:Window(text)
 			minimized = not minimized
 		end
 	)
+local hotkey = _G.ToggleKeyBind
+local mouse = game.Players.LocalPlayer:GetMouse()
+
+local hotkeyminiz = false
+mouse.KeyDown:Connect(function(key)
+if key == hotkey then
+if hotkeyminiz == false then
+				MainFrame:TweenSize(
+					UDim2.new(0, 0, 0, 0),
+					Enum.EasingDirection.Out,
+					Enum.EasingStyle.Quart,
+					.3,
+					true
+				)
+hotkeyminiz = true
+			else
+				MainFrame:TweenSize(
+					UDim2.new(0, 681, 0, 396),
+					Enum.EasingDirection.Out,
+					Enum.EasingStyle.Quart,
+					.3,
+					true
+				)
+hotkeyminiz = false
+			end
+end
+end)
 	
 	local SettingsOpenBtn = Instance.new("TextButton")
 	local SettingsOpenBtnIco = Instance.new("ImageLabel")
@@ -660,7 +690,7 @@ function DiscordLib:Window(text)
 	ChangeAvatarText.BackgroundTransparency = 1.000
 	ChangeAvatarText.Size = UDim2.new(0, 71, 0, 71)
 	ChangeAvatarText.Font = Enum.Font.GothamBold
-	ChangeAvatarText.Text = "CHAGNE    AVATAR"
+	ChangeAvatarText.Text = "CHANGE    AVATAR"
 	ChangeAvatarText.TextColor3 = Color3.fromRGB(255, 255, 255)
 	ChangeAvatarText.TextSize = 11.000
 	ChangeAvatarText.TextWrapped = true
@@ -1118,7 +1148,7 @@ function DiscordLib:Window(text)
 	DiscordInfo.Position = UDim2.new(0.304721028, 0, 0.821333349, 0)
 	DiscordInfo.Size = UDim2.new(0, 133, 0, 44)
 	DiscordInfo.Font = Enum.Font.Gotham
-	DiscordInfo.Text = "Stable 1.0.0 (00001)  Host 0.0.0.1                Roblox Lua Engine    "
+	DiscordInfo.Text = "Cattori v1                 Stable Host         Roblox Lua Engine    "
 	DiscordInfo.TextColor3 = Color3.fromRGB(101, 108, 116)
 	DiscordInfo.TextSize = 13.000
 	DiscordInfo.TextWrapped = true
@@ -2171,7 +2201,7 @@ function DiscordLib:Window(text)
 				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
 			end
 			function ChannelContent:Toggle(text,default,callback)
-				local toggled = default
+				local toggled = false
 				local Toggle = Instance.new("TextButton")
 				local ToggleTitle = Instance.new("TextLabel")
 				local ToggleFrame = Instance.new("Frame")
@@ -2234,33 +2264,7 @@ function DiscordLib:Window(text)
 				Icon.Size = UDim2.new(0, 13, 0, 13)
 				Icon.Image = "http://www.roblox.com/asset/?id=6035047409"
 				Icon.ImageColor3 = Color3.fromRGB(114, 118, 125)
-
-                if toggled then
-                    TweenService:Create(
-                        Icon,
-                        TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        {ImageColor3 = Color3.fromRGB(67,181,129)}
-                    ):Play()
-                    TweenService:Create(
-                        ToggleFrame,
-                        TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(67,181,129)}
-                    ):Play()
-                    ToggleFrameCircle:TweenPosition(UDim2.new(0.655, -5, 0.133000001, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
-                    TweenService:Create(
-                        Icon,
-                        TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        {ImageTransparency = 1}
-                    ):Play()
-                    Icon.Image = "http://www.roblox.com/asset/?id=6023426926"
-                    wait(.1)
-                    TweenService:Create(
-                        Icon,
-                        TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        {ImageTransparency = 0}
-                    ):Play()
-                end
-
+				
 				Toggle.MouseButton1Click:Connect(function()
 					if toggled == false then
 						TweenService:Create(
@@ -2311,11 +2315,10 @@ function DiscordLib:Window(text)
 							{ImageTransparency = 0}
 						):Play()
 					end
-
 					toggled = not toggled
 					pcall(callback, toggled)
 				end)
-
+				
 				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
 			end
 			
@@ -2519,7 +2522,7 @@ function DiscordLib:Window(text)
 				Seperator2.Size = UDim2.new(0, 401, 0, 1)
 				ChannelHolder.CanvasSize = UDim2.new(0,0,0,ChannelHolderLayout.AbsoluteContentSize.Y)
 			end
-			function ChannelContent:Dropdown(text, list, default, callback)
+			function ChannelContent:Dropdown(text, list, callback)
 				local DropFunc = {}
 				local itemcount = 0
 				local framesize = 0
@@ -2583,7 +2586,7 @@ function DiscordLib:Window(text)
 				CurrentSelectedText.Position = UDim2.new(0.0178571437, 0, 0, 0)
 				CurrentSelectedText.Size = UDim2.new(0, 193, 0, 32)
 				CurrentSelectedText.Font = Enum.Font.Gotham
-				CurrentSelectedText.Text = default or "..."
+				CurrentSelectedText.Text = "..."
 				CurrentSelectedText.TextColor3 = Color3.fromRGB(212, 212, 212)
 				CurrentSelectedText.TextSize = 14.000
 				CurrentSelectedText.TextXAlignment = Enum.TextXAlignment.Left
