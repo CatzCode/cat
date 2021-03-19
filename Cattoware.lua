@@ -1,27 +1,33 @@
-local gamelist = {
-    [2041312716] = "RagdollEngine",
-    [1962086868] = "TOH",
-    [5977280685] = "NinjaLegends",
-    [537413528] = "BABFT",
-    [4169490976] = "MortemMetallum",
-    [914010731] = "RoGhoul",
-    [286090429] = "Arsenal",
-    [4849736274] = "SoulCombat",
-    [1401417393] = "RagdollSystemTest",
-    [71315343] = "DBR",
-    [662417684] = "LuckyBlockBattlegrounds",
-    [855499080] = "Skywars",
-    [3527629287] = "BigPaintball",
-    [566399244] = "ElementalBattlegrounds",
-    [537600204] = "ElementalBattlegrounds",
-    [570158081] = "ElementalBattlegrounds",
-    [2569625809] = "ElementalBattlegrounds",
-    [3840352284] = "VolleyBall",
-    [301549746] = "CounterBlox",
-    [3254838662] = "Blacklands",
-    [621129760] = "KAT",
-    [12109643] = "Fencing"
-}
+function add(placeID, exec)
+    if placeID == game.PlaceId then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/CatzCode/cat/main/Games/'..exec..'.lua'))()
+    end
+end
+
+function ApplyGame()
+	add(2041312716, "RagdollEngine")
+	add(1962086868, "TOH")
+	add(5977280685, "NinjaLegends")
+	add(537413528, "BABFT")
+	add(4169490976, "MortemMetallum")
+	add(914010731, "RoGhoul")
+	add(286090429, "Arsenal")
+	add(4849736274, "SoulCombat")
+	add(1401417393, "RagdollSystemTest")
+	add(71315343, "DBR")
+	add(662417684, "LuckyBlockBattlegrounds")
+	add(855499080, "Skywars")
+	add(3527629287, "BigPaintball")
+	add(566399244, "ElementalBattlegrounds")
+	add(537600204, "ElementalBattlegrounds")
+	add(570158081, "ElementalBattlegrounds")
+	add(2569625809, "ElementalBattlegrounds")
+	add(3840352284, "VolleyBall")
+	add(301549746, "CounterBlox")
+	add(3254838662, "Blacklands")
+	add(621129760, "KAT")
+	add(12109643, "Fencing")
+end
 
 local Inoria = Instance.new("ScreenGui")
 local DropShadow = Instance.new("ImageLabel")
@@ -121,11 +127,7 @@ local function MQIFNCL_fake_script() -- Inoria.Tween
 	script.Parent.HubName:TweenPosition(UDim2.new(0.5, 0, 2, 0), "Out", "Linear", 1)
 	Blur.Enabled = false
     wait(2)
-    for gameId,CatWare in pairs(gamelist) do
-        if gameId == game.PlaceId then
-            loadstring(game:HttpGet('https://raw.githubusercontent.com/CatzCode/cat/main/Games/'..CatWare..'.lua'))()
-        end
-    end
+    ApplyGame()
 end
 coroutine.wrap(MQIFNCL_fake_script)()
 
