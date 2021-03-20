@@ -15,17 +15,17 @@
 - [x] Free 
 - [x] Custom ESP
 
-Cattori | The power of Cattoware and Ori Hub have merged to make Cattori, the next big hub.
------------------------------- GAMES ------------------------------
-In a finished state, Cattori will have 40+ games combined (20 + 27)
-You can probably guess which games, because it's too many to list!
- ------------------------------ Extras  ------------------------------
-All games will have excellent features and stability in most finished state.
------------------------------- Links ------------------------------
-Discord:
-https://cattoware.tk/discord
-Script:
-Code:
+Cattori | The power of Cattoware and Ori Hub have merged to make Cattori, the next big hub. <br/>
+------------------------------ GAMES ------------------------------ <br/>
+In a finished state, Cattori will have 40+ games combined (20 + 27) <br/>
+You can probably guess which games, because it's too many to list! <br/>
+ ------------------------------ Extras  ------------------------------ <br/>
+All games will have excellent features and stability in most finished state. <br/>
+------------------------------ Links ------------------------------ <br/>
+Discord: <br/>
+https://cattoware.tk/discord <br/> 
+Script: <br/>
+Code: <br/>
 ```lua
 loadstring(game:HttpGet("https://cattoware.tk/main.lua"))()
 ```
