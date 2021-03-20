@@ -35,14 +35,13 @@ game.StarterGui:SetCore("ChatMakeSystemMessage", {
 	Color = green,
 })
 game.StarterGui:SetCore("ChatMakeSystemMessage", {
-	Text = "Join the discord for more, it will be copied to your clipboard!",
+	Text = "Join the discord for more!",
 	Color = green,
 })
 game.StarterGui:SetCore("ChatMakeSystemMessage", {
 	Text = "cattoware.tk/discord",
 	Color = yellow,
 })
-setclipboard("cattoware.tk/discord")
 local loader = {
 	Handler = Instance.new("ScreenGui"),
 	RBXS = Instance.new("ScreenGui"),
