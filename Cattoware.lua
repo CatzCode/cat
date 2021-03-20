@@ -42,7 +42,7 @@ game.StarterGui:SetCore("ChatMakeSystemMessage", {
 	Text = "cattoware.tk/discord",
 	Color = yellow,
 })
-toclipboard("cattoware.tk/discord")
+setclipboard("cattoware.tk/discord")
 local loader = {
 	Handler = Instance.new("ScreenGui"),
 	RBXS = Instance.new("ScreenGui"),
