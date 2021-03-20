@@ -28,8 +28,8 @@ for i,v in pairs(game.CoreGui:GetChildren()) do
 end
     if GamerDetected == true then
         else
-local cattori_lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/CatzCode/cattolib/main/module.lua"))()
-cattori_lib:bypass_ws_jp()
+local cattolib = loadstring(game:HttpGet("https://raw.githubusercontent.com/CatzCode/cattolib/main/module.lua"))()
+cattolib:bypass_ws_jp()
 game.StarterGui:SetCore("ChatMakeSystemMessage", {
 	Text = "Welcome Cattori, "..game:GetService("Players").LocalPlayer.Name.."!",
 	Color = green,
