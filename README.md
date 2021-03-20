@@ -14,12 +14,18 @@
 - [x] Great Features
 - [x] Free 
 - [x] Custom ESP
-- [ ] Stability Fixing
 
-**__Script__**
+Cattori | The power of Cattoware and Ori Hub have merged to make Cattori, the next big hub.
+------------------------------ GAMES ------------------------------
+In a finished state, Cattori will have 40+ games combined (20 + 27)
+You can probably guess which games, because it's too many to list!
+ ------------------------------ Extras  ------------------------------
+All games will have excellent features and stability in most finished state.
+------------------------------ Links ------------------------------
+Discord:
+https://cattoware.tk/discord
+Script:
+Code:
 ```lua
-loadstring(game:HttpGet('https://cattoware.tk/main.lua'))()
+loadstring(game:HttpGet("https://cattoware.tk/main.lua"))()
 ```
-<br/>
-**__Discord__**
-Join our Discord server: https://cattoware.tk/discord
