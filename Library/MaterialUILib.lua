@@ -1,8 +1,8 @@
-//Original: https://materiallua.ml/
-//All credits to:
-//twink marie - Creator
-//Magi - Asset Creation
-//Greenman - Website & Documentation
+--Original: https://materiallua.ml/
+--All credits to:
+--twink marie - Creator
+--Magi - Asset Creation
+--Greenman - Website & Documentation
 
 
 local Player = game:GetService("Players").LocalPlayer
