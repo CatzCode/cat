@@ -1,155 +1,128 @@
+--[[                                                                      
+      ::::::::      ::: ::::::::::: ::::::::::: ::::::::  :::::::::  ::::::::::: 
+    :+:    :+:   :+: :+:   :+:         :+:    :+:    :+: :+:    :+:     :+:      
+   +:+         +:+   +:+  +:+         +:+    +:+    +:+ +:+    +:+     +:+       
+  +#+        +#++:++#++: +#+         +#+    +#+    +:+ +#++:++#:      +#+        
+ +#+        +#+     +#+ +#+         +#+    +#+    +#+ +#+    +#+     +#+         
+#+#    #+# #+#     #+# #+#         #+#    #+#    #+# #+#    #+#     #+#          
+########  ###     ### ###         ###     ########  ###    ### ###########       
+]]
+--Colors !!
+red     = Color3.new(0.741176, 0, 0)
 green   = Color3.new(0, 1, 0.498039)
 yellow  = Color3.new(1, 1, 0.498039)
-game.StarterGui:SetCore("ChatMakeSystemMessage", {
-    Text = "Welcome to Cattori, "..game:GetService("Players").LocalPlayer.Name.."!",
-    Color = green,
-})
-game.StarterGui:SetCore("ChatMakeSystemMessage", {
-    Text = "Join the discord for more!",
-    Color = green,
-})
-game.StarterGui:SetCore("ChatMakeSystemMessage", {
-    Text = "cattoware.tk/discord",
-    Color = yellow,
-})
+--This is to check if it has been executed before
+local GamerDetected = nil
+for i,v in pairs(game.CoreGui:GetChildren()) do
+	if v.Name == 'Request Handler' or v.Name == 'Cattori Services' or v.Name == 'RBXS Lua Engine' then
+	    if GamerDetected == true then
+	        else
+			game.StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = "You have already executed Cattori!",
+		Color = red,
+	})
+	GamerDetected = true
+	end
+		else
+	end
+end
+    if GamerDetected == true then
+        else
+local cattori_lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/CatzCode/cattolib/main/module.lua"))()
+cattori_lib:bypass_ws_jp()
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = "Welcome Cattori, "..game:GetService("Players").LocalPlayer.Name.."!",
+		Color = green,
+	})
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = "Join the discord for more!",
+		Color = green,
+	})
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = "cattoware.tk/discord",
+		Color = yellow,
+	})
 
-function add(placeID, exec)
-    if placeID == game.PlaceId then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/CatzCode/cat/main/Games/'..exec..'.lua'))()
-    end
+local loader = {
+	Handler = Instance.new("ScreenGui"),
+	RBXS = Instance.new("ScreenGui"),
+	CattoriLibv2 = Instance.new("ScreenGui"),
+	CattoriServices = Instance.new("ScreenGui"),
+	
+}
+--Load haker man stuffz 💻
+loader.Handler.Name = "Request Handler"
+loader.RBXS.Name = "RBXS Lua Engine"
+loader.CattoriLibv2.Name = "Cattori Lib v2"
+loader.CattoriServices.Name = "Cattori Services"
+loader.Handler.Parent = game.CoreGui
+loader.RBXS.Parent = game.CoreGui
+loader.CattoriLibv2.Parent = game.CoreGui
+loader.CattoriServices.Parent = game.CoreGui
+
+loader.games = {}
+
+function loader:registerGame(id, name, url)
+	loader.games[tostring(id)] = {name = name, loadstring = url}
 end
 
-function ApplyGame()
-	add(2041312716, "RagdollEngine")
-	add(1962086868, "TOH")
-	add(5977280685, "NinjaLegends")
-	add(537413528, "BABFT")
-	add(4169490976, "MortemMetallum")
-	add(914010731, "RoGhoul")
-	add(286090429, "Arsenal")
-	add(4849736274, "SoulCombat")
-	add(1401417393, "RagdollSystemTest")
-	add(71315343, "DBR")
-	add(662417684, "LuckyBlockBattlegrounds")
-	add(855499080, "Skywars")
-	add(3527629287, "BigPaintball")
-	add(566399244, "ElementalBattlegrounds")
-	add(537600204, "ElementalBattlegrounds")
-	add(570158081, "ElementalBattlegrounds")
-	add(2569625809, "ElementalBattlegrounds")
-	add(3840352284, "VolleyBall")
-	add(301549746, "CounterBlox")
-	add(3254838662, "Blacklands")
-	add(621129760, "KAT")
-	add(12109643, "Fencing")
+function loader:detectGame()
+	local detectedGame = self.games[tostring(game.PlaceId)]
+	
+	if detectedGame then
+	game.StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = "Supported Game!",
+		Color = green,
+	})
+		return detectedGame
+	else
+			game.StarterGui:SetCore("ChatMakeSystemMessage", {
+		Text = "Game Not supported, loaded universal!",
+		Color = red,
+	})
+		loadstring(game:HttpGet('https://virtuallization.com/Cattori/Universal.txt'))()
+	end
 end
+	-- games
+loader:registerGame(3527629287, "Big Paintball", "https://virtuallization.com/Cattori/BigPaintball.txt")
+loader:registerGame(4894544370, "Pistol 1v1", "https://virtuallization.com/Cattori/Pistol1v1.txt")
+loader:registerGame(5603739866, "Psycho 100: Infinity", "https://virtuallization.com/Cattori/Psycho100Infinity.txt")
+loader:registerGame(6201963079, "Zero Two Dance", "https://virtuallization.com/Cattori/ZeroTwoDance.txt")
+loader:registerGame(6447798030, "Funky friday", "https://virtuallization.com/Cattori/FunkyFriday.txt")
+loader:registerGame(621129760, "KAT", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/KAT.lua")
+loader:registerGame(286090429, "Arsenal", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Arsenal.lua")
+loader:registerGame(914010731, "RoGhoul", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/RoGhoul.lua")
+loader:registerGame(4169490976, "MortemMetallum", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/MortemMetallum.lua")
+loader:registerGame(537413528, "BABFT", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/BABFT.lua")
+loader:registerGame(5977280685, "NinjaLegends", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/NinjaLegends.lua")
+loader:registerGame(1962086868, "KAT", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/KAT.lua")
+loader:registerGame(2569625809, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
+loader:registerGame(570158081, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
+loader:registerGame(537600204, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
+loader:registerGame(566399244, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
+loader:registerGame(3840352284, "Volley Ball", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/VolleyBall.lua")
+loader:registerGame(301549746, "Counter Blox", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/CounterBlox.lua")
+loader:registerGame(3254838662, "Blacklands", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Blacklands.lua")
+loader:registerGame(12109643, "Fencing", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Fencing.lua")
+loader:registerGame(4849736274, "Soul Combat", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/SoulCombat.lua")
+loader:registerGame(1401417393, "Ragdoll System Test", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/RagdollSystemTest.lua")
+loader:registerGame(71315343, "DBR", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/DBR.lua")
+loader:registerGame(855499080, "Skywars", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Skywars.lua")
+loader:registerGame(662417684, "Lucky Block Battlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/LuckyBlockBattlegrounds.lua")
 
-local Inoria = Instance.new("ScreenGui")
-local DropShadow = Instance.new("ImageLabel")
-local Log = Instance.new("ImageLabel")
-local UICorner = Instance.new("UICorner")
-local HubName = Instance.new("TextLabel")
+local detectedGame = loader:detectGame()
 
---Properties:
-
-Inoria.Name = "Inoria"
-Inoria.Parent = game.CoreGui
-Inoria.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-DropShadow.Name = "DropShadow"
-DropShadow.Parent = Inoria
-DropShadow.AnchorPoint = Vector2.new(0.5, 0.5)
-DropShadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-DropShadow.BackgroundTransparency = 1.000
-DropShadow.Position = UDim2.new(0.5, 0, -1, 0)
-DropShadow.Size = UDim2.new(0, 170, 0, 170)
-DropShadow.ZIndex = 0
-DropShadow.Image = "http://www.roblox.com/asset/?id=258799800"
-
-Log.Name = "Log"
-Log.Parent = Inoria
-Log.AnchorPoint = Vector2.new(0.5, 0.5)
-Log.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Log.BackgroundTransparency = 1.000
-Log.Position = UDim2.new(0.5, 0, -1, 0)
-Log.Size = UDim2.new(0, 150, 0, 150)
-Log.Image = "http://www.roblox.com/asset/?id=6533811900"
-
-UICorner.CornerRadius = UDim.new(0, 90)
-UICorner.Parent = Log
-
-HubName.Name = "HubName"
-HubName.Parent = Inoria
-HubName.AnchorPoint = Vector2.new(0.5, 0.5)
-HubName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-HubName.BackgroundTransparency = 1.000
-HubName.Position = UDim2.new(0.5, 0, -1, 0)
-HubName.Size = UDim2.new(0, 200, 0, 37)
-HubName.Font = Enum.Font.JosefinSans
-HubName.Text = ""
-HubName.TextColor3 = Color3.fromRGB(255, 255, 255)
-HubName.TextSize = 18.000
-HubName.TextWrapped = true
-
--- Scripts:
-
-local function MQIFNCL_fake_script() -- Inoria.Tween 
-	local script = Instance.new('LocalScript', Inoria)
-
-	-- Check Game Loaded --
-	repeat wait() until game:IsLoaded()
-	-- Variable --
-	local Exlusive = ""
-	local TweenService = game:GetService("TweenService")
-	local Blur = Instance.new("BlurEffect")
-	Blur.Parent = game:GetService("Lighting")
-	Blur.Name = "LynxSexy"
-	Blur.Size = 24
-	Blur.Enabled = true
-	-- Stuff --
-	script.Parent.Log:TweenPosition(UDim2.new(0.5,0,0.5,0), "Out", "Linear", 1)
-	script.Parent.DropShadow:TweenPosition(UDim2.new(0.5,0,0.5,0), "Out", "Linear", 1)
-	script.Parent.HubName:TweenPosition(UDim2.new(0.5, 0, 0.685, 0), "Out", "Elastic", 3)
-	wait(4)
-	script.Parent.HubName.Text = "C"
-	wait(.1)
-	script.Parent.HubName.Text = "Ca"
-	wait(.1)
-	script.Parent.HubName.Text = "Cat"
-	wait(.1)
-	script.Parent.HubName.Text = "Catt"
-	wait(.1)
-	script.Parent.HubName.Text = "Catto"
-	wait(.1)
-	script.Parent.HubName.Text = "Cattow"
-	wait(.1)
-	script.Parent.HubName.Text = "Cattowa"
-	wait(.1)
-	script.Parent.HubName.Text = "Cattowar"
-	wait(.1)
-	script.Parent.HubName.Text = "Cattoware"
-	wait(.1)
-	script.Parent.HubName.Text = "Cattoware 1"
-	wait(.1)
-	script.Parent.HubName.Text = "Cattoware 1.7"
-	wait(.1)
-	script.Parent.HubName.Text = "Cattoware 1.7.5"
-	wait(.1)
-	script.Parent.HubName.Text = "Cattoware 1.7.5b"..Exlusive
-	wait(2)
-	script.Parent.Log:TweenPosition(UDim2.new(0.5,0,2,0), "Out", "Linear", 1)
-	script.Parent.DropShadow:TweenPosition(UDim2.new(0.5,0,2,0), "Out", "Linear", 1)
-	script.Parent.HubName:TweenPosition(UDim2.new(0.5, 0, 2, 0), "Out", "Linear", 1)
-	Blur.Enabled = false
-    wait(2)
-    ApplyGame()
+if detectedGame then
+if not ({pcall(function()
+			local Elements = {"Line", "Text", "Image", "Circle", "Square", "Quad", "Triangle"}
+			for i, v in ipairs(Elements) do
+				Drawing.new(v):Remove()
+			end
+		end)})[1] then
+		
+		Drawing = nil
+	end
+--
+	loadstring(game:HttpGet(detectedGame.loadstring))()
 end
-coroutine.wrap(MQIFNCL_fake_script)()
-
-spawn(function()
-    local VirtualUser=game:GetService'VirtualUser'
-    game:GetService'Players'.LocalPlayer.Idled:Connect(function()
-        VirtualUser:CaptureController()
-        VirtualUser:ClickButton2(Vector2.new())
-    end)
-end)
+end
