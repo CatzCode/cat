@@ -30,19 +30,19 @@ end
         else
 local cattori_lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/CatzCode/cattolib/main/module.lua"))()
 cattori_lib:bypass_ws_jp()
-	game.StarterGui:SetCore("ChatMakeSystemMessage", {
-		Text = "Welcome Cattori, "..game:GetService("Players").LocalPlayer.Name.."!",
-		Color = green,
-	})
-	game.StarterGui:SetCore("ChatMakeSystemMessage", {
-		Text = "Join the discord for more!",
-		Color = green,
-	})
-	game.StarterGui:SetCore("ChatMakeSystemMessage", {
-		Text = "cattoware.tk/discord",
-		Color = yellow,
-	})
-
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+	Text = "Welcome Cattori, "..game:GetService("Players").LocalPlayer.Name.."!",
+	Color = green,
+})
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+	Text = "Join the discord for more, it will be copied to your clipboard!",
+	Color = green,
+})
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+	Text = "cattoware.tk/discord",
+	Color = yellow,
+})
+toclipboard("cattoware.tk/discord")
 local loader = {
 	Handler = Instance.new("ScreenGui"),
 	RBXS = Instance.new("ScreenGui"),
