@@ -95,7 +95,7 @@ loader:registerGame(914010731, "RoGhoul", "https://raw.githubusercontent.com/Cat
 loader:registerGame(4169490976, "MortemMetallum", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/MortemMetallum.lua")
 loader:registerGame(537413528, "BABFT", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/BABFT.lua")
 loader:registerGame(5977280685, "NinjaLegends", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/NinjaLegends.lua")
-loader:registerGame(1962086868, "KAT", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/KAT.lua")
+loader:registerGame(1962086868, "Tower Of Hell", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/TowerOfHell.lua")
 loader:registerGame(2569625809, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
 loader:registerGame(570158081, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
 loader:registerGame(537600204, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
