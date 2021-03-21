@@ -1131,6 +1131,7 @@ function Material.Load(Config)
 			local DropdownText = DropdownConfig.Text or "nil dropdown"
 			local DropdownCallback = DropdownConfig.Callback or function() print("nil dropdown") end
 			local DropdownOptions = DropdownConfig.Options or {}
+            local DropdownDefault = ": "..DropdownConfig.Default or ""
 			local Menu = DropdownConfig.Menu or {}
 
 			local Dropdown = Objects.new("Frame")
@@ -1148,7 +1149,7 @@ function Material.Load(Config)
 			local DropdownTitle = Objects.new("Button")
 			DropdownTitle.Name = "Title"
 			DropdownTitle.Font = Enum.Font.GothamSemibold
-			DropdownTitle.Text = DropdownText
+			DropdownTitle.Text = DropdownText .. DropdownDefault
 			DropdownTitle.TextColor3 = Theme.DropdownAccent
 			DropdownTitle.TextTransparency = 1
 			DropdownTitle.TextSize = 14
@@ -2408,6 +2409,10 @@ function Material.Load(Config)
 				local SizeFromScale = (MinSize +  (MaxSize - MinSize)) * DefaultScale
 				SizeFromScale = SizeFromScale - (SizeFromScale % 2)
 				SliderDot.Position = UDim2.fromScale(DefaultScale,0.5) - UDim2.fromOffset(SizeFromScale/2,SizeFromScale/2)
+			end
+
+            function SliderLibrary:GetSlider()
+                return SliderDot, SliderFill, SliderValue
 			end
 
 			function SliderLibrary:GetMin()
