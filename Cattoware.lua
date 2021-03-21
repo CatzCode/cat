@@ -115,80 +115,70 @@ Detect.TextWrapped = true
 
 UICorner.CornerRadius = UDim.new(0, 3)
 UICorner.Parent = MainFrame
-
-local function QEEVCDD_fake_script() -- MainFrame.LocalScript 
-	local script = Instance.new('LocalScript', MainFrame)
-
-	repeat wait() until game:IsLoaded()
-	--script.Parent:TweenPosition(UDim2.new(0.5, 0, 0.5, 0), "Out", "Elastic", 3)
-	wait(3)
-	script.Parent:TweenPosition(UDim2.new(0.941, 0,0.963, 0))
-	wait(1)
-	script.Parent.Detect.Text = "f"
-	wait(.1)
-	script.Parent.Detect.Text = "ft"
-	wait(.1)
-	script.Parent.Detect.Text = "ft."
-	wait(.1)
-	script.Parent.Detect.Text = "ft. c"
-	wait(.1)
-	script.Parent.Detect.Text = "ft. ca"
-	wait(.1)
-	script.Parent.Detect.Text = "ft. cat"
-	wait(.1)
-	script.Parent.Detect.Text = "ft. catt"
-	wait(.1)
-	script.Parent.Detect.Text = "ft. catto"
-	wait(.1)
-	script.Parent.Detect.Text = "ft. cattor"
-	wait(.1)
-	script.Parent.Detect.Text = "ft. cattori"
-	loader:registerGame(3527629287, "Big Paintball", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/BigPaintball.lua")
-	loader:registerGame(292439477, "Phantom Forces", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/PhantomForces.lua")
-	loader:registerGame(4894544370, "Pistol 1v1", "https://virtuallization.com/Cattori/Pistol1v1.txt")
-	loader:registerGame(5603739866, "Psycho 100: Infinity", "https://virtuallization.com/Cattori/Psycho100Infinity.txt")
-	loader:registerGame(6201963079, "Zero Two Dance", "https://virtuallization.com/Cattori/ZeroTwoDance.txt")
-	loader:registerGame(6447798030, "Funky friday", "https://virtuallization.com/Cattori/FunkyFriday.txt")
-	loader:registerGame(621129760, "KAT", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/KAT.lua")
-	loader:registerGame(286090429, "Arsenal", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Arsenal.lua")
-	loader:registerGame(914010731, "RoGhoul", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/RoGhoul.lua")
-	loader:registerGame(4169490976, "MortemMetallum", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/MortemMetallum.lua")
-	loader:registerGame(537413528, "BABFT", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/BABFT.lua")
-	loader:registerGame(5977280685, "NinjaLegends", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/NinjaLegends.lua")
-	loader:registerGame(1962086868, "Tower Of Hell", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/TowerOfHell.lua")
-	loader:registerGame(2569625809, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
-	loader:registerGame(570158081, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
-	loader:registerGame(537600204, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
-	loader:registerGame(566399244, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
-	loader:registerGame(3840352284, "Volley Ball", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/VolleyBall.lua")
-	loader:registerGame(301549746, "Counter Blox", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/CounterBlox.lua")
-	loader:registerGame(3254838662, "Blacklands", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Blacklands.lua")
-	loader:registerGame(12109643, "Fencing", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Fencing.lua")
-	loader:registerGame(4849736274, "Soul Combat", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/SoulCombat.lua")
-	loader:registerGame(1401417393, "Ragdoll System Test", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/RagdollSystemTest.lua")
-	loader:registerGame(71315343, "DBR", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/DBR.lua")
-	loader:registerGame(855499080, "Skywars", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Skywars.lua")
-	loader:registerGame(662417684, "Lucky Block Battlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/LuckyBlockBattlegrounds.lua")
-	loader:registerGame(23144831, "CraftWars", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/CraftsWar.lua")
-	loader:registerGame(617830641, "CraftWarsRetro", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/RetroCraftwars.lua")
-	loader:registerGame(183364845, "SpeedRun4", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/SpeedRun4.lua")
-	loader:registerGame(6073366803, "RageRunner", "https://virtuallization.com/Cattori/RageRunner.txt")
-	loader:registerGame(6242296404, "HappyRunner", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/HappyRunner.lua")
-	local detectedGame = loader:detectGame()
-
-	if detectedGame then
+wait(3)
+MainFrame:TweenPosition(UDim2.new(0.941, 0,0.963, 0))
+wait(1)
+MainFrame.Detect.Text = "f"
+wait(.1)
+MainFrame.Detect.Text = "ft"
+wait(.1)
+MainFrame.Detect.Text = "ft."
+wait(.1)
+MainFrame.Detect.Text = "ft. c"
+wait(.1)
+MainFrame.Detect.Text = "ft. ca"
+wait(.1)
+MainFrame.Detect.Text = "ft. cat"
+wait(.1)
+MainFrame.Detect.Text = "ft. catt"
+wait(.1)
+MainFrame.Detect.Text = "ft. catto"
+wait(.1)
+MainFrame.Detect.Text = "ft. cattor"
+wait(.1)
+MainFrame.Detect.Text = "ft. cattori"
+loader:registerGame(3527629287, "Big Paintball", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/BigPaintball.lua")
+loader:registerGame(292439477, "Phantom Forces", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/PhantomForces.lua")
+loader:registerGame(4894544370, "Pistol 1v1", "https://virtuallization.com/Cattori/Pistol1v1.txt")
+loader:registerGame(5603739866, "Psycho 100: Infinity", "https://virtuallization.com/Cattori/Psycho100Infinity.txt")
+loader:registerGame(6201963079, "Zero Two Dance", "https://virtuallization.com/Cattori/ZeroTwoDance.txt")
+loader:registerGame(6447798030, "Funky friday", "https://virtuallization.com/Cattori/FunkyFriday.txt")
+loader:registerGame(621129760, "KAT", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/KAT.lua")
+loader:registerGame(286090429, "Arsenal", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Arsenal.lua")
+loader:registerGame(914010731, "RoGhoul", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/RoGhoul.lua")
+loader:registerGame(4169490976, "MortemMetallum", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/MortemMetallum.lua")
+loader:registerGame(537413528, "BABFT", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/BABFT.lua")
+loader:registerGame(5977280685, "NinjaLegends", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/NinjaLegends.lua")
+loader:registerGame(1962086868, "Tower Of Hell", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/TowerOfHell.lua")
+loader:registerGame(2569625809, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
+loader:registerGame(570158081, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
+loader:registerGame(537600204, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
+loader:registerGame(566399244, "ElementalBattlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/ElementalBattlegrounds.lua")
+loader:registerGame(3840352284, "Volley Ball", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/VolleyBall.lua")
+loader:registerGame(301549746, "Counter Blox", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/CounterBlox.lua")
+loader:registerGame(3254838662, "Blacklands", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Blacklands.lua")
+loader:registerGame(12109643, "Fencing", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Fencing.lua")
+loader:registerGame(4849736274, "Soul Combat", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/SoulCombat.lua")
+loader:registerGame(1401417393, "Ragdoll System Test", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/RagdollSystemTest.lua")
+loader:registerGame(71315343, "DBR", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/DBR.lua")
+loader:registerGame(855499080, "Skywars", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Skywars.lua")
+loader:registerGame(662417684, "Lucky Block Battlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/LuckyBlockBattlegrounds.lua")
+loader:registerGame(23144831, "CraftWars", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/CraftsWar.lua")
+loader:registerGame(617830641, "CraftWarsRetro", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/RetroCraftwars.lua")
+loader:registerGame(183364845, "SpeedRun4", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/SpeedRun4.lua")
+loader:registerGame(6073366803, "RageRunner", "https://virtuallization.com/Cattori/RageRunner.txt")
+loader:registerGame(6242296404, "HappyRunner", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/HappyRunner.lua")
+local detectedGame = loader:detectGame()
+if detectedGame then
 	if not ({pcall(function()
-				local Elements = {"Line", "Text", "Image", "Circle", "Square", "Quad", "Triangle"}
+			local Elements = {"Line", "Text", "Image", "Circle", "Square", "Quad", "Triangle"}
 				for i, v in ipairs(Elements) do
 					Drawing.new(v):Remove()
 				end
 			end)})[1] then
-
 			Drawing = nil
+			end
+			loadstring(game:HttpGet(detectedGame.loadstring))()
 		end
-	--
-		loadstring(game:HttpGet(detectedGame.loadstring))()
-	end
 	end
 end
-coroutine.wrap(QEEVCDD_fake_script)()
