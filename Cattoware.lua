@@ -113,7 +113,7 @@ loader:registerGame(23144831, "CraftWars", "https://raw.githubusercontent.com/Ca
 loader:registerGame(617830641, "CraftWarsRetro", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/RetroCraftwars.lua")
 loader:registerGame(183364845, "SpeedRun4", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/SpeedRun4.lua")
 loader:registerGame(6073366803, "RageRunner", "https://virtuallization.com/Cattori/RageRunner.txt")
-loader:registerGame(6242296404, "HappyRunner", "https://virtuallization.com/Cattori/HappyRunner.txt")
+loader:registerGame(6242296404, "HappyRunner", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/HappyRunner.lua")
 	
 local detectedGame = loader:detectGame()
 
