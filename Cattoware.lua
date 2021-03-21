@@ -111,7 +111,7 @@ loader:registerGame(855499080, "Skywars", "https://raw.githubusercontent.com/Cat
 loader:registerGame(662417684, "Lucky Block Battlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/LuckyBlockBattlegrounds.lua")
 loader:registerGame(23144831, "CraftWars", "https://virtuallization.com/Cattori/CraftWars.txt")
 loader:registerGame(617830641, "CraftWarsRetro", "https://virtuallization.com/Cattori/CraftWarsRetro.txt")
-loader:registerGame(183364845, "SpeedRun4", "https://virtuallization.com/Cattori/Speedrun4.txt")
+loader:registerGame(183364845, "SpeedRun4", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/SpeedRun4.lua")
 loader:registerGame(6073366803, "RageRunner", "https://virtuallization.com/Cattori/RageRunner.txt")
 loader:registerGame(6242296404, "HappyRunner", "https://virtuallization.com/Cattori/HappyRunner.txt")
 	
