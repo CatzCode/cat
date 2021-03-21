@@ -88,6 +88,7 @@ loader:registerGame(292439477, "Phantom Forces", "https://raw.githubusercontent.
 loader:registerGame(4894544370, "Pistol 1v1", "https://virtuallization.com/Cattori/Pistol1v1.txt")
 loader:registerGame(5603739866, "Psycho 100: Infinity", "https://virtuallization.com/Cattori/Psycho100Infinity.txt")
 loader:registerGame(6201963079, "Zero Two Dance", "https://virtuallization.com/Cattori/ZeroTwoDance.txt")
+loader:registerGame(23578803, "Hotel Elephant", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/HotelElephant.lua"
 loader:registerGame(6447798030, "Funky friday", "https://virtuallization.com/Cattori/FunkyFriday.txt")
 loader:registerGame(621129760, "KAT", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/KAT.lua")
 loader:registerGame(286090429, "Arsenal", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Arsenal.lua")
