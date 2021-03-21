@@ -127,4 +127,3 @@ if detectedGame then
 			loadstring(game:HttpGet(detectedGame.loadstring))()
 		end
 	end
-end
