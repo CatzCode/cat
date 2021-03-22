@@ -115,6 +115,7 @@ loader:registerGame(12109643, "Fencing", "https://raw.githubusercontent.com/Catz
 loader:registerGame(4849736274, "Soul Combat", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/SoulCombat.lua")
 loader:registerGame(1401417393, "Ragdoll System Test", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/RagdollSystemTest.lua")
 loader:registerGame(71315343, "DBR", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/DBR.lua")
+loader:registerGame(3371469539, "DBR", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/DBR.lua")
 loader:registerGame(855499080, "Skywars", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Skywars.lua")
 loader:registerGame(662417684, "Lucky Block Battlegrounds", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/LuckyBlockBattlegrounds.lua")
 loader:registerGame(23144831, "CraftWars", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/CraftsWar.lua")
