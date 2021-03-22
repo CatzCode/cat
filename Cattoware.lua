@@ -82,6 +82,13 @@ function loader:detectGame()
 		loadstring(game:HttpGet('https://virtuallization.com/Cattori/Universal.txt'))()
 	end
 end
+	
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
 	-- games
 loader:registerGame(3527629287, "Big Paintball", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/BigPaintball.lua")
 loader:registerGame(292439477, "Phantom Forces", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/PhantomForces.lua")
