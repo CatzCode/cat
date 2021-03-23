@@ -125,6 +125,8 @@ loader:registerGame(617830641, "CraftWarsRetro", "https://virtuallization.com/Ca
 loader:registerGame(183364845, "SpeedRun4", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/SpeedRun4.lua")
 loader:registerGame(6073366803, "RageRunner", "https://virtuallization.com/Cattori/RageRunner.txt")
 loader:registerGame(6242296404, "HappyRunner", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/HappyRunner.lua")
+loader:registerGame(2753915549, "BloxFruit", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/BloxFruit.lua")
+
 local detectedGame = loader:detectGame()
 if detectedGame then
 	if not ({pcall(function()
