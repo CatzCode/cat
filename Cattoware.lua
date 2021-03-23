@@ -46,6 +46,7 @@ function cattori:registervGame(id, name)
 end
 
 cattori:registerGame(3527629287, "BigPaintball")
+cattori:registerGame(3233893879, "BadBusiness")
 cattori:registerGame(292439477, "PhantomForces")
 cattori:registervGame(4894544370, "Pistol1v1")
 cattori:registervGame(5603739866, "Psycho100Infinity")
