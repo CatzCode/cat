@@ -714,8 +714,8 @@ function Material.Load(Config)
 	local Title = Config.Title or "MaterialLua"
 	local SizeX = Config.SizeX or 300
 	local SizeY = Config.SizeY or 500
-	local Theme = Config.Theme or "Light"
-	local HideButton = Config.HideButton or Enum.KeyCode.RightShift
+	local Theme = Config.Theme or _G.UITheme or "Light"
+	local HideButton = Config.HideButton or _G.UIToggle or Enum.KeyCode.RightShift
 	local Overrides = Config.ColorOverrides or {}
 	local Open = true
 
