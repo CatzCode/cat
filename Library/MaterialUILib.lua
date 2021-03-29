@@ -2425,40 +2425,7 @@ function Material.Load(Config)
 
 			return SliderLibrary
 		end
-
-		function OptionLibrary.KeyBind(LabelConfig)
-			
-
-			local Keybind = Objects.new("SmoothButton")
-			Keybind.Name = "Toggle"
-			Keybind.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,30)
-			Keybind.ImageColor3 = Theme.Keybind
-			Keybind.ImageTransparency = 1
-			Keybind.Parent = PageContentFrame
-
-			local KeybindLabel = Objects.new("Label")
-			KeybindLabel.Font = Enum.Font.GothamSemibold
-			KeybindLabel.TextSize = 14
-			KeybindLabel.Text = Keybind
-			KeybindLabel.TextColor3 = Theme.Keybind
-			KeybindLabel.TextTransparency = 1
-			KeybindLabel.ClipsDescendants = true
-			KeybindLabel.Parent = Toggle
-
-			local KeybindLibrary = {}
-
-			function KeybindLibrary:SetText(Value)
-				ToggleLabel.Text = Value
-			end
-
-			function KeybindLibrary:GetText()
-				return ToggleLabel.Text
-			end
-
-
-			return KeybindLibrary
-		end
-
+		
 		return OptionLibrary
 	end
 
