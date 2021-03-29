@@ -2432,26 +2432,4 @@ function Material.Load(Config)
 	return TabLibrary
 end
 
-
-
-local UI = Material.Load({
-    Title = "Cattori | Phantom Forces",
-    Style = 1,
-    SizeX = 400,
-    SizeY = 340,
-    Theme = "Dark"
-})
-
-local MainTab = UI.New({Title = "Main"})
-
-MainTab.KeyBind({
-    Text = "Test"
-})
-
-MainTab.Toggle({
-    Text = "Test2",
-	Callback = function()
-
-	end,
-	default = true
-})
+return Material
