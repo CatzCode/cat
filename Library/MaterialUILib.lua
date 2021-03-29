@@ -715,6 +715,7 @@ function Material.Load(Config)
 	local SizeX = Config.SizeX or 300
 	local SizeY = Config.SizeY or 500
 	local Theme = Config.Theme or "Light"
+	local HideButton = Config.HideButton or Enum.KeyCode.RightShift
 	local Overrides = Config.ColorOverrides or {}
 	local Open = true
 
@@ -795,6 +796,16 @@ function Material.Load(Config)
 				MouseKill:Disconnect()
 			end
 		end)
+	end)
+
+	game:GetService("UserInputService").InputBegan:connect(function(key)
+		if (key.KeyCode) and key.KeyCode == HideButton then
+			if MainGUI.Enabled then
+				MainGUI.Enabled = false
+			else
+				MainGUI.Enabled = true
+			end
+		end
 	end)
 
 	local MinimiseButton = Objects.new("SmoothButton")
