@@ -2257,7 +2257,7 @@ function Material.Load(Config)
 			local LabelContainer = Objects.new("Round")
 			LabelContainer.Name = "Spacer"
 			LabelContainer.Size = UDim2.fromScale(1,0) + UDim2.fromOffset(0,7)
-			LabelContainer.ImageColor3 = Theme.Content
+			LabelContainer.Transparency = 1
 			LabelContainer.Parent = PageContentFrame
 		end
 
