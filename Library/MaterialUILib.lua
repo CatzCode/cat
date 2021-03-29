@@ -800,8 +800,9 @@ function Material.Load(Config)
 
 	game:GetService("UserInputService").InputBegan:connect(function(key)
 		if (key.KeyCode) and key.KeyCode == HideButton then
+			Open = not Open
 			if MainGUI.Enabled then
-				MainGUI.Enabled = false
+				TweenService:Create(MainFrame, TweenInfo.new(0.15), {Size = Open and UDim2.fromOffset(SizeX,SizeY) or UDim2.fromOffset(SizeX,0)}):Play()
 			else
 				MainGUI.Enabled = true
 			end
