@@ -799,7 +799,11 @@ function Material.Load(Config)
 	end)
 
 	game:GetService("UserInputService").InputBegan:connect(function(key)
-		if (key.KeyCode) and key.KeyCode == HideButton then
+		local k
+		if typeof(HideButton) == "string" then
+			k = Enum.KeyCode[HideButton]
+		else k = HideButton end
+		if (key.KeyCode) and key.KeyCode == k then
 			Open = not Open
 			TweenService:Create(MainShadow, TweenInfo.new(0.15), {ImageTransparency = 1}):Play()
 			TweenService:Create(MainFrame, TweenInfo.new(0.15), {Size = Open and UDim2.fromOffset(SizeX,SizeY) or UDim2.fromOffset(SizeX,0)}):Play()
