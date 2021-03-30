@@ -5,7 +5,7 @@
 * [Compwnter#5640] - Da Hood (Only) | Scripter <br/>
 * [useIess#0001] - Bot Developer | Contributor <br/>
 * [decode#1010] - Bot Developer <br/>
-* [Spoorloos#7871] - Phantom Forces Developer <br/>
+* [Spoorloos#7871] - Phantom Forces (Only) | Scripter <br/>
 * [Kesh / Ch0nky] - Contributor <br/>
 
 **__About__**
