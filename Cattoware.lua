@@ -126,7 +126,8 @@ loader:registerGame(6073366803, "RageRunner", "https://virtuallization.com/Catto
 loader:registerGame(6242296404, "HappyRunner", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/HappyRunner.lua")
 loader:registerGame(2753915549, "BloxFruit", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/BloxFruit.lua")
 loader:registerGame(4442272183, "BloxFruit", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/BloxFruit.lua")
-loader:registerGame(6115869347, "Ben", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Ben.lua")
+loader:registerGame(6115869347, "Ben 10", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Ben.lua")
+loader:registerGame(6447798030, "Funky Senpai", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Funky Friday.lua")
 
 local detectedGame = loader:detectGame()
 if detectedGame then
