@@ -8,6 +8,20 @@
 ########  ###     ### ###         ###     ########  ###    ### ###########       
 ]]
 --Colors !!
+local GetRawmetaGame = getrawmetatable(game)
+local OldIndex = GetRawmetaGame.__index
+setreadonly(GetRawmetaGame, false)
+
+GetRawmetaGame.__index = newcclosure(function(Self, key, key2)
+	if tostring(Self) == "Humanoid" and tostring(key) == "WalkSpeed" then
+	    return 16
+	end
+	if tostring(Self) == "Humanoid" and tostring(key2) == "JumpPower" then
+	    return 50
+	end
+  	return OldIndex(Self,key,key2)
+end)
+
 red     = Color3.new(0.741176, 0, 0)
 green   = Color3.new(0, 1, 0.498039)
 yellow  = Color3.new(1, 1, 0.498039)
@@ -28,8 +42,6 @@ for i,v in pairs(game.CoreGui:GetChildren()) do
 end
     if GamerDetected == true then
         else
-local cattolib = loadstring(game:HttpGet("https://raw.githubusercontent.com/CatzCode/cattolib/main/module.lua"))()
-cattolib:bypass_ws_jp()
 game.StarterGui:SetCore("ChatMakeSystemMessage", {
 	Text = "Welcome Cattori, "..game:GetService("Players").LocalPlayer.Name.."!",
 	Color = green,
