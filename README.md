@@ -10,22 +10,14 @@
 
 **__About__**
 - [x] High Quality
-- [x] Alot Games
+- [x] Alot of Games
 - [x] Great Features
 - [x] Free 
 - [x] Custom ESP
 
-Cattori | The power of Cattoware and Ori Hub have merged to make Cattori, the next big hub. <br/>
------------------------------- GAMES ------------------------------ <br/>
-In a finished state, Cattori will have 40+ games combined (20 + 27) <br/>
-You can probably guess which games, because it's too many to list! <br/>
- ------------------------------ Extras  ------------------------------ <br/>
-All games will have excellent features and stability in most finished state. <br/>
------------------------------- Links ------------------------------ <br/>
-Discord: <br/>
-https://cattoware.tk/discord <br/> 
-Script: <br/>
-Code: <br/>
+Script:
 ```lua
-loadstring(game:HttpGet("https://cattoware.tk/main.lua"))()
+_G.UITheme = "Dark" --Themes: Dark, Light, Jester, Mocha, Aqua
+_G.ToggleKeyBind = Enum.KeyCode.RightShift
+loadstring(game:HttpGet('https://cattori.xyz/main.lua'))()
 ```
