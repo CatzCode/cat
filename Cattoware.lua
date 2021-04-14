@@ -141,6 +141,7 @@ loader:registerGame(4442272183, "BloxFruit", "https://raw.githubusercontent.com/
 loader:registerGame(6115869347, "Ben 10", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/Ben.lua")
 loader:registerGame(6447798030, "Funky Friday", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/FunkyFriday.lua)
 loader:registerGame(23578803, "Hotel Elephants uwu", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/He.lua")
+loader:registerGame(2041312716, "Ragdoll Engine", "https://raw.githubusercontent.com/CatzCode/cat/main/Games/RagdollEngine.lua")
 
 local detectedGame = loader:detectGame()
 if detectedGame then
