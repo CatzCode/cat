@@ -32,6 +32,8 @@ local Settings = {
     Length = 14,
     FOVSize = 300,
     FOVEnabled = false,
+    FOVTransparency = 1,
+    FOVFilled = false,
     ESPColor = Color3.fromRGB(255,255,255),
     Thickness = 1,
     TextSize = 15,
@@ -101,7 +103,7 @@ local ApplyESP = function(getargs)
     FOVCircle.NumSides = 12
     FOVCircle.Color = Color3.fromRGB(255,255,255)
     FOVCircle.Visible = false
-    FOVCircle.Transparency = Settings.Transparency
+    FOVCircle.Transparency = Settings.FovTransparency
 
     local SkeletonTorso = Drawing.new("Line")
     SkeletonTorso.Visible = false
@@ -276,6 +278,8 @@ local ApplyESP = function(getargs)
             FOVCircle.Thickness = Settings.Thickness
             FOVCircle.NumSides = Settings.RoundedCorner
             FOVCircle.Radius = Settings.FOVSize
+            FOVCircle.Transparency = Settings.FOVTransparency
+            FOVCircle.Filled = Settings.FOVFilled
             if Colors.RainbowEnabled then
                 FOVCircle.Color = Color3.fromHSV(tick()%5/5,1,1)
             else
