@@ -103,7 +103,7 @@ local ApplyESP = function(getargs)
     FOVCircle.NumSides = 12
     FOVCircle.Color = Color3.fromRGB(255,255,255)
     FOVCircle.Visible = false
-    FOVCircle.Transparency = Settings.FovTransparency
+    FOVCircle.Transparency = Settings.FOVTransparency
 
     local SkeletonTorso = Drawing.new("Line")
     SkeletonTorso.Visible = false
