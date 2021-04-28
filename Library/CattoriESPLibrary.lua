@@ -336,31 +336,37 @@ local ApplyESP = function(getargs)
                             ChamsHead.Adornee = _head
                             ChamsHead.Size = _head.Size
                             ChamsHead.Visible = teamcheck
+                            ChamsHead.Transparency = (1 - Settings.Transparency)
 
                             ChamsTorso.Parent = _torso
                             ChamsTorso.Adornee = _torso
                             ChamsTorso.Size = _torso.Size
                             ChamsTorso.Visible = teamcheck
+                            ChamsTorso.Transparency = (1 - Settings.Transparency)
                             
                             ChamsLeftArm.Parent = _leftarm
                             ChamsLeftArm.Adornee = _leftarm
                             ChamsLeftArm.Size = _leftarm.Size
                             ChamsLeftArm.Visible = teamcheck
+                            ChamsLeftArm.Transparency = (1 - Settings.Transparency)
                             
                             ChamsRightArm.Parent = _rightarm
                             ChamsRightArm.Adornee = _rightarm
                             ChamsRightArm.Size = _rightarm.Size
                             ChamsRightArm.Visible = teamcheck
+                            ChamsRightArm.Transparency = (1 - Settings.Transparency)
                             
                             ChamsRightLeg.Parent = _rightleg
                             ChamsRightLeg.Adornee = _rightleg
                             ChamsRightLeg.Size = _rightleg.Size
                             ChamsRightLeg.Visible = teamcheck
+                            ChamsRightLeg.Transparency = (1 - Settings.Transparency)
                             
                             ChamsLeftLeg.Parent = _leftleg
                             ChamsLeftLeg.Adornee = _leftleg
                             ChamsLeftLeg.Size = _leftleg.Size
                             ChamsLeftLeg.Visible = teamcheck
+                            ChamsLeftLeg.Transparency = (1 - Settings.Transparency)
 
                             if ClosestBody and Closest and MainPlayer then
                                 if Closest.Name == MainPlayer.Name then
