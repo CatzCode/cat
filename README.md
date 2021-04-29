@@ -9,7 +9,7 @@
 * [Kesh / Ch0nky] - Contributor <br/>
 
 **__About__**
-- [x] High Quality
+- [ ] High Quality
 - [x] Alot of Games
 - [x] Great Features
 - [x] Free 
