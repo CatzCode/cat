@@ -20,6 +20,9 @@ local getFramework = function()
             end
         end
         if type(v) == "table" then
+            if rawget(v, "step") and rawget(v, "reset") and rawget(v, "new") and not framework.sound then
+                framework.particle = v
+            end 
             if rawget(v, "PlaySoundId") and not framework.sound then
                 framework.sound = v
             end 
@@ -49,7 +52,7 @@ local getFramework = function()
             end
         end
     end
-    if not (framework.trajectory and framework.getgunlist and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings) then
+    if not (framework.trajectory and framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings) then
         error("Couldn't get framework")
         return
     end
