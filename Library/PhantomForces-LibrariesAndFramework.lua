@@ -14,7 +14,7 @@ end
 local getFramework = function()
     local framework = { }
     local _success
-    local tries
+    local tries = 0
     repeat
         _success = pcall(function()
             for i,v in pairs(getgc(true)) do
