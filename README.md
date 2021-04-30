@@ -1,11 +1,14 @@
+**__Cattori__**
+Cattori | The only script you'll ever need.
+Version | 3.0.3
 **__Credits__**
 * [falseopx#2012] - Owner | Scripter <br/>
 * [Vault#0001] - Owner | Scripter <br/>
 * [xiba.cool#9637] - Scripter <br/>
-* [Compwnter#5640] - Da Hood (Only) | Scripter <br/>
-* [useIess#0001] - Bot Developer | Contributor <br/>
-* [decode#1010] - Bot Developer <br/>
 * [Spoorloos#7871] - Phantom Forces (Only) | Scripter <br/>
+* [Compwnter#5640] - Da Hood (Only) | Scripter <br/>
+* [useless#0001] - Bot Developer <br/>
+* [decode#1010] - Website Developer <br/>
 * [Kesh / Ch0nky] - Contributor <br/>
 
 **__About__**
@@ -15,7 +18,7 @@
 - [x] Free 
 - [x] Custom ESP
 
-Script:
+**__Script:__**
 ```lua
 _G.UITheme = "Dark" --Themes: Dark, Light, Jester, Mocha, Aqua
 _G.ToggleKeyBind = Enum.KeyCode.RightShift
