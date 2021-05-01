@@ -63,7 +63,9 @@ local getFramework = function()
                 end
             end
         end
-        wait(1)
+        if not (framework.trajectory and framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings) then
+            wait(1)
+        end
     until (framework.trajectory and framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
 
     return framework, true
