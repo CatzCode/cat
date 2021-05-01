@@ -13,13 +13,9 @@ local getLibraries = function()
 end
 local getFramework = function()
     local framework = { }
-    local tries = 0
-    repeat
-        if tries >= 100 then
-            return { }, false -- cri
-        end
-        tries = tonumber(tries) + 1
-
+    local success = true
+    
+    success = pcall(function()
         for i,v in pairs(getgc(true)) do
             if type(v) == "function" then
                 local function_name = debug.getinfo(v).name:lower()
@@ -63,9 +59,7 @@ local getFramework = function()
                 end
             end
         end
-        wait(0.1)
-    until (framework.trajectory and framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
-
-    return framework, true
+    end)
+    return framework, success and (framework.trajectory and framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
 end
 return getLibraries, getFramework
