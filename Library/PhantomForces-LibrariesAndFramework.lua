@@ -15,6 +15,9 @@ local getFramework = function()
     local framework = { }
     local tries = 0
     repeat
+        if tries == 10 then
+            return { }, false -- cri
+        end
         
         tries = tonumber(tries) + 1
 
@@ -61,16 +64,7 @@ local getFramework = function()
                 end
             end
         end
-
-        if (framework.trajectory and framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings) then
-            return framework, true
-        end
-
         wait(1)
-
-        if tries >= 10 then
-            return framework, false
-        end
     until (framework.trajectory and framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
 
     return framework, true
