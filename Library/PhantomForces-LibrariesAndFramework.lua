@@ -30,6 +30,9 @@ local getFramework = function()
                 if rawget(v, "step") and rawget(v, "reset") and rawget(v, "new") and not framework.sound then
                     framework.particle = v
                 end 
+                if rawget(v, "isplayeralive") and not framework.hud then
+                    framework.hud = v
+                end 
                 if rawget(v, "PlaySoundId") and not framework.sound then
                     framework.sound = v
                 end 
@@ -60,6 +63,6 @@ local getFramework = function()
             end
         end
     end)
-    return framework, success and (framework.trajectory and framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
+    return framework, success and (framework.trajectory and framework.getgunlist and framework.particle and framework.hud and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
 end
 return getLibraries, getFramework
