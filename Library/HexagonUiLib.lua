@@ -783,8 +783,10 @@ function library:CreateWindow(csize, cpos)
 					end
 				end)
 				
-				LocalTab.main.Size = UDim2.new(1,0,0,self.layout.AbsoluteContentSize.Y+16)
-				
+                if newrow then
+				    LocalTab.main.Size = UDim2.new(1,0,0,self.layout.AbsoluteContentSize.Y+16)
+				end
+                
 				return button
 			end
 			
