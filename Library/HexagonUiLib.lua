@@ -758,8 +758,8 @@ function library:CreateWindow(csize, cpos)
 
 				if newrow then 
                     checkRow()
+					LocalTab.main.Parent = tab.row
                 end
-				LocalTab.main.Parent = tab.row
 				
 				button.button = library:create("TextButton", {
 					LayoutOrder = self.order,
@@ -774,8 +774,9 @@ function library:CreateWindow(csize, cpos)
 					TextXAlignment = Enum.TextXAlignment.Center,
 					Parent = self.content,
 				})
-				
-				self.order = self.order + 1
+				if newrow then 
+					self.order = self.order + 1
+				end
 				
 				button.button.InputBegan:connect(function(input)
 					if input.UserInputType == Enum.UserInputType.MouseButton1 then
