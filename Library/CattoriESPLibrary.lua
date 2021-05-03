@@ -265,7 +265,7 @@ local ApplyESP = function(getargs)
 		local headpos = ESPPart.Parent:FindFirstChild("Head").Position
 
 		if type(ESPPart) == "function" then
-			rootpartpos, headpos = ESPPart()
+			ESPPart, rootpartpos, headpos = ESPPart()
 		end
 
         local ClosestBody, Closest
