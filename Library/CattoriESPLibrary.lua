@@ -298,7 +298,7 @@ local ApplyESP = function(getargs)
         end
 
 
-        if (ESPPart and ESPPart.Parent and game:GetService("Players").LocalPlayer.Character) and ESPPart.Parent ~= game:GetService("Players").LocalPlayer.Character then
+        if (ESPPart and game:GetService("Players").LocalPlayer.Character) and ESPPart.Parent ~= game:GetService("Players").LocalPlayer.Character then
             local Health = 100
             local MaxHealth = 100
             if game.PlaceId == 292439477 then --fix for phantom forces lol
