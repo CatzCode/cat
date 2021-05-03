@@ -261,8 +261,8 @@ local ApplyESP = function(getargs)
     game:GetService("RunService").RenderStepped:Connect(function()
         local MainPlayer, ESPPart, closest, closest2 = getargs()
 
-		local rootpartpos = ESPPart.Position
-		local headpos = ESPPart.Parent:FindFirstChild("Head").Position
+		local rootpartpos = ESPPart.Position or nil
+		local headpos = ESPPart.Parent:FindFirstChild("Head").Position or nil
 
 		if type(ESPPart) == "function" then
 			ESPPart, rootpartpos, headpos = ESPPart()
