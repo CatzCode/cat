@@ -260,6 +260,14 @@ local ApplyESP = function(getargs)
 
     game:GetService("RunService").RenderStepped:Connect(function()
         local MainPlayer, ESPPart, closest, closest2 = getargs()
+
+		local rootpartpos = ESPPart.Position
+		local headpos = ESPPart.Parent:FindFirstChild("Head").Position
+
+		if type(ESPPart) == "function" then
+			rootpartpos, headpos = ESPPart()
+		end
+
         local ClosestBody, Closest
         if closest then
             if type(closest) == "function" then
@@ -305,15 +313,15 @@ local ApplyESP = function(getargs)
             end
 
             if ESPPart.Parent:FindFirstChild("Head") then
-                local Vector, onScreen = camera:worldToViewportPoint(ESPPart.Position)
-                local Distance = (camera.CFrame.p - ESPPart.Position).Magnitude
+                local Vector, onScreen = camera:worldToViewportPoint(rootpartpos)
+                local Distance = (camera.CFrame.p - rootpartpos).Magnitude
                 local RootPart = ESPPart
                 local Head = ESPPart.Parent:FindFirstChild("Head")
                 local RootPosition, RootVis = worldToViewportPoint(camera, RootPart.Position)
-                local HeadPosition = worldToViewportPoint(camera, Head.Position + Settings.HeadOff)
+                local HeadPosition = worldToViewportPoint(camera, headpos + Settings.HeadOff)
                 local LegPosition = worldToViewportPoint(camera, RootPart.Position - Settings.LegOff)
                 local offsetCFrame = CFrame.new(0, 0, -Settings.Length)
-                local headpos, OnScreen = camera:WorldToViewportPoint(Head.Position)
+                local headpos, OnScreen = camera:WorldToViewportPoint(headpos)
                 local dir = Head.CFrame:ToWorldSpace(offsetCFrame)
                 local dirpos, vis = camera:WorldToViewportPoint(Vector3.new(dir.X, dir.Y, dir.Z))
 
@@ -854,7 +862,7 @@ local ApplyESP = function(getargs)
                         local LeftArm = camera:WorldToViewportPoint(ESPPart.Parent["Left Arm"].Position)
                         local RightArm = camera:WorldToViewportPoint(ESPPart.Parent["Right Arm"].Position)
         
-                        local Head = camera:WorldToViewportPoint(ESPPart.Parent["Head"].Position)
+                        local Head = camera:WorldToViewportPoint(headpos)
                         
                         SkeletonTorso.Visible = true
                         SkeletonHead.Visible = true
