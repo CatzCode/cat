@@ -756,13 +756,11 @@ function library:CreateWindow(csize, cpos)
 				_function = _function or function() end
                 newrow = newrow or false
 
-				if newrow then 
-                    checkRow()
-					LocalTab.main.Parent = tab.row
-                end
-				
+                checkRow()
+				LocalTab.main.Parent = tab.row
+
 				button.button = library:create("TextButton", {
-					LayoutOrder = self.order,
+					LayoutOrder = newrow and self.order or self.order - 1,
 					Size = UDim2.new(1,0,0,library.settings.textsize + 2),
 					BackgroundColor3 = Color3.fromRGB(60, 60, 60),
 					BackgroundTransparency = 0,
@@ -774,10 +772,9 @@ function library:CreateWindow(csize, cpos)
 					TextXAlignment = Enum.TextXAlignment.Center,
 					Parent = self.content,
 				})
-				if newrow then 
-					self.order = self.order + 1
-				end
-				
+
+				self.order = self.order + 1
+
 				button.button.InputBegan:connect(function(input)
 					if input.UserInputType == Enum.UserInputType.MouseButton1 then
 						_function()
