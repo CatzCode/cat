@@ -19,6 +19,7 @@ local Settings = {
     HealthbarBox2D = true,
     TracerEnabled = false,
     NameEnabled = false,
+    BoxEnabled = false,
     SkeletonESPEnabled = false,
     Box3DEnabled = false,
     ChamsEnabled = false,
@@ -52,6 +53,7 @@ Colors = {
     end,
     ["UseTeamColor"] = true,
     ["RainbowEnabled"] = false,
+    ["BoxColor"] = Color3.fromRGB(255,255,255),
     ["Box2DColor"] = Color3.fromRGB(255,255,255),
     ["TracersColor"] = Color3.fromRGB(255,255,255),
     ["NameESPColor"] = Color3.fromRGB(255,255,255),
@@ -237,36 +239,58 @@ local ApplyESP = function(getargs)
     ChamsHead.Transparency = 0.5
     ChamsHead.ZIndex = 5
     ChamsHead.AlwaysOnTop = true
+
     local ChamsTorso = Instance.new("BoxHandleAdornment")
     ChamsTorso.Transparency = 0.5
     ChamsTorso.ZIndex = 5
     ChamsTorso.AlwaysOnTop = true
+
     local ChamsRightArm = Instance.new("BoxHandleAdornment")
     ChamsRightArm.Transparency = 0.5
     ChamsRightArm.ZIndex = 5
     ChamsRightArm.AlwaysOnTop = true
+
     local ChamsLeftArm = Instance.new("BoxHandleAdornment")
     ChamsLeftArm.Transparency = 0.5
     ChamsLeftArm.ZIndex = 5
     ChamsLeftArm.AlwaysOnTop = true
+
     local ChamsRightLeg = Instance.new("BoxHandleAdornment")
     ChamsRightLeg.Transparency = 0.5
     ChamsRightLeg.ZIndex = 5
     ChamsRightLeg.AlwaysOnTop = true
+
     local ChamsLeftLeg = Instance.new("BoxHandleAdornment")
     ChamsLeftLeg.Transparency = 0.5
     ChamsLeftLeg.ZIndex = 5
     ChamsLeftLeg.AlwaysOnTop = true
 
+    local BoxLine1 = Drawing.new("Line")
+    line1.Visible = false
+    line1.Color = Color3.fromRGB(255,255,255)
+    line1.Thickness = Settings.Thickness
+    line1.Transparency = Settings.Transparency
+
+    local BoxLine2 = Drawing.new("Line")
+    line2.Visible = false
+    line2.Color = Color3.fromRGB(255,255,255)
+    line2.Thickness = Settings.Thickness
+    line2.Transparency = Settings.Transparency
+
+    local BoxLine3 = Drawing.new("Line")
+    line3.Visible = false
+    line3.Color = Color3.fromRGB(255,255,255)
+    line3.Thickness = Settings.Thickness
+    line3.Transparency = Settings.Transparency
+
+    local BoxLine4 = Drawing.new("Line")
+    line4.Visible = false
+    line4.Color = Color3.fromRGB(255,255,255)
+    line4.Thickness = Settings.Thickness
+    line4.Transparency = Settings.Transparency
+
     game:GetService("RunService").RenderStepped:Connect(function()
         local MainPlayer, ESPPart, closest, closest2 = getargs()
-
-		local rootpartpos = type(ESPPart) == "function" and Vector3.new() or ESPPart.Position
-		local headpos = type(ESPPart) == "function" and Vector3.new() or ESPPart.Parent:FindFirstChild("Head").Position
-
-		if type(ESPPart) == "function" then
-			ESPPart, rootpartpos, headpos = ESPPart()
-		end
 
         local ClosestBody, Closest
         if closest then
@@ -298,7 +322,7 @@ local ApplyESP = function(getargs)
         end
 
 
-        if (ESPPart and game:GetService("Players").LocalPlayer.Character) and (type(ESPPart) ~= "function" and ESPPart.Parent ~= game:GetService("Players").LocalPlayer.Character) then
+        if ESPPart and ESPPart.Parent and ESPPart.Parent ~= game:GetService("Players").LocalPlayer.Character then
             local Health = 100
             local MaxHealth = 100
             if game.PlaceId == 292439477 then --fix for phantom forces lol
@@ -313,15 +337,15 @@ local ApplyESP = function(getargs)
             end
 
             if ESPPart.Parent:FindFirstChild("Head") then
-                local Vector, onScreen = camera:worldToViewportPoint(rootpartpos)
-                local Distance = (camera.CFrame.p - rootpartpos).Magnitude
+                local Vector, onScreen = camera:worldToViewportPoint(ESPPart.Position)
+                local Distance = (camera.CFrame.p - ESPPart.Position).Magnitude
                 local RootPart = ESPPart
                 local Head = ESPPart.Parent:FindFirstChild("Head")
                 local RootPosition, RootVis = worldToViewportPoint(camera, RootPart.Position)
-                local HeadPosition = worldToViewportPoint(camera, headpos + Settings.HeadOff)
+                local HeadPosition = worldToViewportPoint(camera, Head.Position + Settings.HeadOff)
                 local LegPosition = worldToViewportPoint(camera, RootPart.Position - Settings.LegOff)
                 local offsetCFrame = CFrame.new(0, 0, -Settings.Length)
-                local headpos, OnScreen = camera:WorldToViewportPoint(headpos)
+                local headpos, OnScreen = camera:WorldToViewportPoint(Head.Position)
                 local dir = Head.CFrame:ToWorldSpace(offsetCFrame)
                 local dirpos, vis = camera:WorldToViewportPoint(Vector3.new(dir.X, dir.Y, dir.Z))
 
@@ -440,6 +464,93 @@ local ApplyESP = function(getargs)
                         ChamsRightArm.Visible = false
                         ChamsRightLeg.Visible = false
                         ChamsLeftLeg.Visible = false
+                    end
+
+                    if Settings.BoxEnabled then
+                        local Size = Vector2.new(2, 3) * ESPPart.Parent.Head.Size.Y
+                        local Top1 = ESPPart.CFrame * CFrame.new(Size.X, Size.Y, 0)
+                        Top1 = camera:worldToViewportPoint(Top1.p)
+                        local Top2 = ESPPart.CFrame * CFrame.new(-Size.X, Size.Y, 0)
+                        Top2 = camera:worldToViewportPoint(Top2.p)
+                        local Bottom1 = ESPPart.CFrame * CFrame.new(Size.X, -Size.Y, 0)
+                        Bottom1 = camera:worldToViewportPoint(Bottom1.p)
+                        local Bottom2 = ESPPart.CFrame * CFrame.new(-Size.X, -Size.Y, 0)
+                        Bottom2 = camera:worldToViewportPoint(Bottom2.p)
+
+                        BoxLine1.From = Vector2.new(Top1.X, Top1.Y)
+                        BoxLine1.To = Vector2.new(Top2.X, Top2.Y)
+
+                        BoxLine2.From = Vector2.new(Top2.X, Top2.Y)
+                        BoxLine2.To = Vector2.new(Bottom2.X, Bottom2.Y)
+
+                        BoxLine3.From = Vector2.new(Bottom2.X, Bottom2.Y)
+                        BoxLine3.To = Vector2.new(Bottom1.X, Bottom1.Y)
+
+                        BoxLine4.From = Vector2.new(Bottom1.X, Bottom1.Y)
+                        BoxLine4.To = Vector2.new(Top1.X, Top1.Y)
+
+                        BoxLine1.Thickness = Settings.Thickness
+                        BoxLine2.Thickness = Settings.Thickness
+                        BoxLine3.Thickness = Settings.Thickness
+                        BoxLine4.Thickness = Settings.Thickness
+
+                        BoxLine1.Transparency = Settings.Transparency
+                        BoxLine2.Transparency = Settings.Transparency
+                        BoxLine3.Transparency = Settings.Transparency
+                        BoxLine4.Transparency = Settings.Transparency
+
+                        BoxLine1.Visible = not (MainPlayer.TeamColor == plr.TeamColor and Settings.TeamCheckEnabled)
+                        BoxLine2.Visible = not (MainPlayer.TeamColor == plr.TeamColor and Settings.TeamCheckEnabled)
+                        BoxLine3.Visible = not (MainPlayer.TeamColor == plr.TeamColor and Settings.TeamCheckEnabled)
+                        BoxLine4.Visible = not (MainPlayer.TeamColor == plr.TeamColor and Settings.TeamCheckEnabled)
+
+                        if ClosestBody and Closest and MainPlayer then
+                            if Closest.Name == MainPlayer.Name then
+                                BoxLine1.Color = Color3.fromRGB(255, 255, 255)
+                                BoxLine2.Color = Color3.fromRGB(255, 255, 255)
+                                BoxLine3.Color = Color3.fromRGB(255, 255, 255)
+                                BoxLine4.Color = Color3.fromRGB(255, 255, 255)
+                            else
+                                if Colors.RainbowEnabled then
+                                    BoxLine1.Color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+                                    BoxLine2.Color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+                                    BoxLine3.Color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+                                    BoxLine4.Color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+                                elseif Colors.UseTeamColor then
+                                    BoxLine1.Color = MainPlayer.TeamColor.Color
+                                    BoxLine2.Color = MainPlayer.TeamColor.Color
+                                    BoxLine3.Color = MainPlayer.TeamColor.Color
+                                    BoxLine4.Color = MainPlayer.TeamColor.Color
+                                else
+                                    BoxLine1.Color = Colors.BoxColor
+                                    BoxLine2.Color = Colors.BoxColor
+                                    BoxLine3.Color = Colors.BoxColor
+                                    BoxLine4.Color = Colors.BoxColor
+                                end
+                            end
+                        else
+                            if Colors.RainbowEnabled then
+                                BoxLine1.Color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+                                BoxLine2.Color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+                                BoxLine3.Color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+                                BoxLine4.Color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+                            elseif Colors.UseTeamColor then
+                                BoxLine1.Color = MainPlayer.TeamColor.Color
+                                BoxLine2.Color = MainPlayer.TeamColor.Color
+                                BoxLine3.Color = MainPlayer.TeamColor.Color
+                                BoxLine4.Color = MainPlayer.TeamColor.Color
+                            else
+                                BoxLine1.Color = Colors.BoxColor
+                                BoxLine2.Color = Colors.BoxColor
+                                BoxLine3.Color = Colors.BoxColor
+                                BoxLine4.Color = Colors.BoxColor
+                            end
+                        end
+                    else
+                        BoxLine1.Visible = false
+                        BoxLine2.Visible = false
+                        BoxLine3.Visible = false
+                        BoxLine4.Visible = false
                     end
 
                     if Settings.Box2DEnabled then
@@ -862,7 +973,7 @@ local ApplyESP = function(getargs)
                         local LeftArm = camera:WorldToViewportPoint(ESPPart.Parent["Left Arm"].Position)
                         local RightArm = camera:WorldToViewportPoint(ESPPart.Parent["Right Arm"].Position)
         
-                        local Head = camera:WorldToViewportPoint(headpos)
+                        local Head = camera:WorldToViewportPoint(ESPPart.Parent["Head"].Position)
                         
                         SkeletonTorso.Visible = true
                         SkeletonHead.Visible = true
@@ -1008,6 +1119,10 @@ local ApplyESP = function(getargs)
                     line11.Visible = false
                     line12.Visible = false
                     Viewline.Visible = false
+                    BoxLine1.Visible = false
+                    BoxLine2.Visible = false
+                    BoxLine3.Visible = false
+                    BoxLine4.Visible = false
                 end
             else
                 Box.Visible = false
@@ -1033,6 +1148,10 @@ local ApplyESP = function(getargs)
                 line11.Visible = false
                 line12.Visible = false
                 Viewline.Visible = false
+                BoxLine1.Visible = false
+                BoxLine2.Visible = false
+                BoxLine3.Visible = false
+                BoxLine4.Visible = false
             end
         else
             Box.Visible = false
@@ -1058,6 +1177,10 @@ local ApplyESP = function(getargs)
             line11.Visible = false
             line12.Visible = false
             Viewline.Visible = false
+            BoxLine1.Visible = false
+            BoxLine2.Visible = false
+            BoxLine3.Visible = false
+            BoxLine4.Visible = false
         end
     end)
     return {Box, HealthBar, Tracer, Name, FOVCircle, SkeletonTorso, SkeletonHead, SkeletonLeftLeg, SkeletonRightLeg, SkeletonLeftArm, SkeletonRightArm, 
