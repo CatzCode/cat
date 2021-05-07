@@ -57,6 +57,6 @@ local getFramework = function()
             end
         end
     end)
-    return framework, success and (framework.trajectory and framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
+    return framework, success and (framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
 end
 return getLibraries, getFramework
