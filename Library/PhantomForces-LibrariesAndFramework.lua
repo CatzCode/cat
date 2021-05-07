@@ -19,9 +19,6 @@ local getFramework = function()
         for i,v in pairs(getgc(true)) do
             if type(v) == "function" then
                 local function_name = debug.getinfo(v).name:lower()
-                if function_name == "trajectory" then
-                    framework.trajectory = v
-                end
                 if function_name == "getgunlist" then
                     framework.getgunlist = v
                 end
