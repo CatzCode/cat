@@ -8,6 +8,7 @@
 ########  ###     ### ###         ###     ########  ###    ### ###########       
 ]]
 --Colors !!
+_G.starttick = tick()
 local GetRawmetaGame = getrawmetatable(game)
 local OldIndex = GetRawmetaGame.__index
 setreadonly(GetRawmetaGame, false)
