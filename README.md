@@ -7,7 +7,7 @@ Version | 3.0.3
 * [falseopx#2012] - Owner | Scripter <br/>
 * [Vault#0001] - Owner | Scripter <br/>
 * [xiba.cool#9637] - Scripter <br/>
-* [Spoorloos#7871] - Phantom Forces (Only) | Scripter <br/>
+* [Spoorloos#7871] - Owner | Scripter (PF Only) <br/>
 * [Compwnter#5640] - Da Hood (Only) | Scripter <br/>
 * [useless#0001] - Bot Developer <br/>
 * [decode#1010] - Website Developer <br/>
