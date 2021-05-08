@@ -27,7 +27,7 @@ local getFramework = function()
                 if rawget(v, "step") and rawget(v, "reset") and rawget(v, "new") then
                     framework.particle = v
                 end 
-                if rawget(v, "lock") and rawget(v, "raycastwhitelist") then
+                if rawget(v, "lock") then
                     framework.roundsystem = v
                 end 
                 if rawget(v, "PlaySoundId") then
