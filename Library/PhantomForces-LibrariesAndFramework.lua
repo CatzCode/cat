@@ -27,6 +27,9 @@ local getFramework = function()
                 if rawget(v, "step") and rawget(v, "reset") and rawget(v, "new") then
                     framework.particle = v
                 end 
+                if rawget(v, "lock") and rawget(v, "raycastwhitelist") then
+                    framework.roundsystem = v
+                end 
                 if rawget(v, "PlaySoundId") then
                     framework.sound = v
                 end 
@@ -57,6 +60,6 @@ local getFramework = function()
             end
         end
     end)
-    return framework, success and (framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
+    return framework, success and (framework.getgunlist and framework.particle and framework.roundsystem and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
 end
 return getLibraries, getFramework
