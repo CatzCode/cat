@@ -26,9 +26,7 @@ local Settings = {
     ViewTracerEnabled = false,
     TextOutlineEnabled = false,
     TeamCheckEnabled = true,
-    MouseFrom = false,
-    BottomFrom = true,
-    HeadFrom = false,
+    TracerFrom = "Bottom",
     RoundedCorner = 12,
     Length = 14,
     FOVSize = 300,
@@ -606,18 +604,27 @@ local ApplyESP = function(getargs)
                     end
                     if Settings.TracerEnabled then
                         if plr.Character and plr.Character:FindFirstChild("Head") then
-                            if Settings.BottomFrom then
-                                Tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 1)
-                            elseif Settings.HeadFrom then
-                                local headpos = camera:WorldToViewportPoint(plr.Character:FindFirstChild("Head").Position)
-                                Tracer.From = Vector2.new(headpos.X, headpos.Y)
-                            elseif Settings.MouseFrom then
-                                Tracer.From = Vector2.new(mouse.X, mouse.Y+36)
+                            if Settings.TracerFrom == "Bottom" then
+                                Tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y)
+                            elseif Settings.TracerFrom == "Top" then
+                                Tracer.From = Vector2.new(camera.ViewportSize.X / 2, 0)
+                            elseif Settings.TracerFrom == "Middle" then
+                                Tracer.From = Vector2.new(camera.ViewportSize.X / 2, camera.ViewportSize.Y / 2)
                             end
+                            
                             if Settings.Box2DEnabled then
                                 Tracer.To = Vector2.new(Box.Position.X + (Box.Size.X / 2), Box.Position.Y)
                             else
-                                Tracer.To = Vector2.new(Vector.X, Vector.Y)
+                                if Settings.BoxEnabled then
+                                    local line = BoxLine3
+                                    if Settings.TracerFrom == "Top" then
+                                        line = BoxLine1
+                                    end
+                                    local location = (line.To + line.From) / 2
+                                    Tracer.To = Vector2.new(location.X, location.Y)
+                                else
+                                    Tracer.To = Vector2.new(Vector.X, Vector.Y)
+                                end
                             end
                             Tracer.Visible = true
                             Tracer.Transparency = Settings.Transparency
