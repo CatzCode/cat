@@ -13,9 +13,7 @@ local getLibraries = function()
 end
 local getFramework = function()
     local framework = { }
-    local success = true
-    
-    success = pcall(function()
+    local success = pcall(function()
         for i,v in pairs(getgc(true)) do
             if type(v) == "function" then
                 local function_name = debug.getinfo(v).name:lower()
