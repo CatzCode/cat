@@ -1,12 +1,12 @@
 -- Libaries and framework (open source for faster loading time)
 local getLibraries = function()
     local libs = { }
-    success = pcall(function()
-        local _ = loadstring(game:HttpGet("https://raw.githubusercontent.com/CatzCode/cat/main/Library/CattoriESPLibrary.lua", true))
-        local __ = loadstring(game:HttpGet("https://raw.githubusercontent.com/Pawel12d/hexagon/main/scripts/UILibrary.lua", true))
+    local success = pcall(function()
+        local _esp = loadstring(game:HttpGet("https://raw.githubusercontent.com/CatzCode/cat/main/Library/CattoriESPLibrary.lua", true))
+        local _ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/Pawel12d/hexagon/main/scripts/UILibrary.lua", true))
         libs = {
-            esp = _(),
-            ui = __()
+            esp = _esp(),
+            ui = _ui()
         }
     end)
     return libs, success
@@ -24,9 +24,6 @@ local getFramework = function()
             if type(v) == "table" then
                 if rawget(v, "step") and rawget(v, "reset") and rawget(v, "new") then
                     framework.particle = v
-                end 
-                if rawget(v, "lock") then
-                    framework.roundsystem = v
                 end 
                 if rawget(v, "PlaySoundId") then
                     framework.sound = v
@@ -58,6 +55,6 @@ local getFramework = function()
             end
         end
     end)
-    return framework, success and (framework.getgunlist and framework.particle and framework.roundsystem and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
+    return framework, success and (framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
 end
 return getLibraries, getFramework
