@@ -1203,40 +1203,25 @@ local function CreateLightning(startPos, endPos)
 			offset = Vector3.new(0, 0, 0)
 		end
 
-		local startoftracer = Instance.new("Part", game.Workspace:FindFirstChild("Map") or game.Workspace)
-		local endoftracer = Instance.new("Part", game.Workspace:FindFirstChild("Map") or game.Workspace)
-		startoftracer.Size = Vector3.new(0, 0, 0)
-		startoftracer.Transparency = 1
-		startoftracer.CanCollide = false
-		startoftracer.Anchored = true
-		endoftracer.Size = Vector3.new(0, 0, 0)
-		endoftracer.Transparency = 1
-		endoftracer.CanCollide = false
-		endoftracer.Anchored = true
-
-		startoftracer.CFrame = CFrame.new(lastloc)
-		endoftracer.CFrame = CFrame.new(newPos + offset)
-
-		local laser = Instance.new("Beam", startoftracer)
-		laser.FaceCamera = false
-		laser.Color = ColorSequence.new(Color3.fromRGB(85, 170, 255), Color3.fromRGB(85, 170, 255))
-		laser.LightEmission = 3
-		laser.LightInfluence = 0
-		laser.Width0 = 0.15
-		laser.Width1 = 0.15
-		laser.Attachment0 = Instance.new("Attachment", startoftracer)
-		laser.Attachment1 = Instance.new("Attachment", endoftracer)
+		local distance = ((newPos + offset) - lastloc).Magnitude
+		local lightningpart = Instance.new("Part", game.Workspace)
+		lightningpart.Color = Color3.fromRGB(85, 170, 255)
+		lightningpart.Material = Enum.Material.SmoothPlastic
+		lightningpart.Transparency = 0.5
+		lightningpart.CanCollide = false
+		lightningpart.Anchored = true
+		lightningpart.CFrame = CFrame.new(lastloc, newPos + offset) * CFrame.new(0, 0, -distance / 2)
+		lightningpart.Size = Vector3.new(0.1, 0.1, distance)
+		
 		lastloc = newPos + offset
-
+		
 		delay(1.6, function()
 			for i = 0.5, 1.3, 0.2 do
 				wait()
-				laser.Transparency = NumberSequence.new(i)
+				lightningpart.Transparency = NumberSequence.new(i)
 			end
-			startoftracer:Destroy()
-			endoftracer:Destroy()
+			lightningpart:Destroy()
 		end)
-
 	end
 end
 
