@@ -1207,8 +1207,8 @@ local function CreateLightning(startPos, endPos)
 			offset = Vector3.new(0, 0, 0)
 		end
 
-		local startoftracer = Instance.new("Part", game.Workspace:FindFirstChild("Map") or game.Workspace)
-		local endoftracer = Instance.new("Part", game.Workspace:FindFirstChild("Map") or game.Workspace)
+		local startoftracer = Instance.new("Part", game.Workspace:FindFirstChild("Ignore") or game.Workspace)
+		local endoftracer = Instance.new("Part", game.Workspace:FindFirstChild("Ignore") or game.Workspace)
 		local attach = Instance.new("Attachment", startoftracer)
 		local attach2 = Instance.new("Attachment", endoftracer)
 		local laser = Instance.new("Beam", startoftracer)
