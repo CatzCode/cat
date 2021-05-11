@@ -44,7 +44,7 @@ end
     if GamerDetected == true then
         else
 game.StarterGui:SetCore("ChatMakeSystemMessage", {
-	Text = "Welcome Cattori, "..game:GetService("Players").LocalPlayer.Name.."!",
+	Text = "Welcome to Cattori, "..game:GetService("Players").LocalPlayer.Name.."!",
 	Color = green,
 })
 game.StarterGui:SetCore("ChatMakeSystemMessage", {
@@ -52,7 +52,7 @@ game.StarterGui:SetCore("ChatMakeSystemMessage", {
 	Color = green,
 })
 game.StarterGui:SetCore("ChatMakeSystemMessage", {
-	Text = "cattoware.tk/discord",
+	Text = "cattori.tk/discord",
 	Color = yellow,
 })
 local loader = {
