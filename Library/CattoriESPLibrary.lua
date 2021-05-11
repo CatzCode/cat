@@ -1200,10 +1200,10 @@ local function CreateLightning(startPos, endPos)
         tracercolor = Color3.fromHSV(tick() % 5 / 5, 1, 1)
     end
 	local lastloc = startPos
-	for i = 0, ((startPos - endPos).Magnitude / 2.5) do
+	for i = 0, ((startPos - endPos).Magnitude / 3.3) do
 		local offset = Vector3.new(math.random(-1, 1), math.random(-1, 1), math.random(-1,1))
-		local newPos = startPos + (endPos - startPos).Unit * i * (endPos - startPos).Magnitude / ((startPos - endPos).Magnitude / 2.5)
-		if i == 0 or i == ((startPos - endPos).Magnitude / 2.5) then
+		local newPos = startPos + (endPos - startPos).Unit * i * (endPos - startPos).Magnitude / ((startPos - endPos).Magnitude / 3.3)
+		if i == 0 or i == ((startPos - endPos).Magnitude / 3.3) then
 			offset = Vector3.new(0, 0, 0)
 		end
 
