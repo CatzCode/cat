@@ -1194,6 +1194,50 @@ local ApplyESP = function(getargs)
     line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, Viewline}
 end
 
+local function CreateLightning(startPos, endPos)
+	local lastloc = startPos
+	for i = 0, ((startPos - endPos).Magnitude / 2.5) do
+		local offset = Vector3.new(math.random(-1, 1), math.random(-1, 1), math.random(-1,1))
+		local newPos = startPos + (endPos - startPos).Unit * i * (endPos - startPos).Magnitude / ((startPos - endPos).Magnitude / 2.5)
+		if i == 0 or i == ((startPos - endPos).Magnitude / 2.5) then
+			offset = Vector3.new(0, 0, 0)
+		end
+
+		local startoftracer = Instance.new("Part", game.Workspace:FindFirstChild("Map") or game.Workspace)
+		local endoftracer = Instance.new("Part", game.Workspace:FindFirstChild("Map") or game.Workspace)
+		local attach = Instance.new("Attachment", startoftracer)
+		local attach2 = Instance.new("Attachment", endoftracer)
+		local laser = Instance.new("Beam", startoftracer)
+		startoftracer.Size = Vector3.new(1, 1, 1)
+		startoftracer.Transparency = 1
+		startoftracer.CanCollide = false
+		startoftracer.CFrame = CFrame.new(lastloc)
+		startoftracer.Anchored = true
+		endoftracer.Size = Vector3.new(1, 1, 1)
+		endoftracer.Transparency = 1
+		endoftracer.CanCollide = false
+		endoftracer.CFrame = CFrame.new(newPos + offset)
+		endoftracer.Anchored = true
+		laser.FaceCamera = false
+		laser.Color = ColorSequence.new(Color3.fromRGB(85, 170, 255), Color3.fromRGB(85, 170, 255))
+		laser.LightEmission = 3
+		laser.LightInfluence = 0
+		laser.Width0 = 0.15
+		laser.Width1 = 0.15
+		laser.Attachment0 = attach
+		laser.Attachment1 = attach2
+		lastloc = newPos + offset
+		delay(1.6, function()
+			for i = 0.5, 1.3, 0.2 do
+				wait()
+				laser.Transparency = NumberSequence.new(i)
+			end
+			startoftracer:Destroy()
+			endoftracer:Destroy()
+		end)
+	end
+end
+
 local function BulletTracer(p1, p2)
     local tracercolor = Colors.BulletTracerColor
     if Colors.RainbowEnabled then
@@ -1264,6 +1308,7 @@ _G.GetCattowareESP = function() --old method bc obfuscated code broke return :cr
         ["Extra"] = {
             ["CreateBulletTracer"] = BulletTracer,
             ["CreateBulletImpact"] = BulletImpact,
+            ["CreateLightning"] = CreateLightning
         }
     }
 end    
@@ -1275,5 +1320,6 @@ return { --new method bc not obfuscated
     ["Extra"] = {
         ["CreateBulletTracer"] = BulletTracer,
         ["CreateBulletImpact"] = BulletImpact,
+        ["CreateLightning"] = CreateLightning
     }
 }
