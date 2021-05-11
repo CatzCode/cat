@@ -1195,6 +1195,10 @@ local ApplyESP = function(getargs)
 end
 
 local function CreateLightning(startPos, endPos)
+    local tracercolor = Colors.BulletTracerColor
+    if Colors.RainbowEnabled then
+        tracercolor = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+    end
 	local lastloc = startPos
 	for i = 0, ((startPos - endPos).Magnitude / 2.5) do
 		local offset = Vector3.new(math.random(-1, 1), math.random(-1, 1), math.random(-1,1))
@@ -1219,7 +1223,7 @@ local function CreateLightning(startPos, endPos)
 		endoftracer.CFrame = CFrame.new(newPos + offset)
 		endoftracer.Anchored = true
 		laser.FaceCamera = false
-		laser.Color = ColorSequence.new(Color3.fromRGB(85, 170, 255), Color3.fromRGB(85, 170, 255))
+		laser.Color = ColorSequence.new(tracercolor, tracercolor)
 		laser.LightEmission = 3
 		laser.LightInfluence = 0
 		laser.Width0 = 0.15
