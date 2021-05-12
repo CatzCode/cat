@@ -1,3 +1,11 @@
+if loaded then
+	return
+end
+
+pcall(function() 
+	getgenv().loaded = true 
+end)
+
 local load = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
