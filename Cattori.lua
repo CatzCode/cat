@@ -1,10 +1,10 @@
-_G.starttick = tick()
 if loaded then
 	return
 end
 
 pcall(function() 
 	getgenv().loaded = true 
+	getgenv().start_tick = tick()
 end)
 
 local load = Instance.new("ScreenGui")
