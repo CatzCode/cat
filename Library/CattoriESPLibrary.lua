@@ -1206,6 +1206,10 @@ local function CreateLightning(startPos, endPos)
 		if i == 0 or i == ((startPos - endPos).Magnitude / 3.3) then
 			offset = Vector3.new(0, 0, 0)
 		end
+        local currentpos = newPos + offset
+        if i == ((startPos - endPos).Magnitude / 3.3) then
+            currentpos = endPos
+        end
 
 		local startoftracer = Instance.new("Part", game.Workspace:FindFirstChild("Ignore") or game.Workspace)
 		local endoftracer = Instance.new("Part", game.Workspace:FindFirstChild("Ignore") or game.Workspace)
@@ -1220,7 +1224,7 @@ local function CreateLightning(startPos, endPos)
 		endoftracer.Size = Vector3.new(1, 1, 1)
 		endoftracer.Transparency = 1
 		endoftracer.CanCollide = false
-		endoftracer.CFrame = CFrame.new(newPos + offset)
+		endoftracer.CFrame = CFrame.new(currentpos)
 		endoftracer.Anchored = true
 		laser.FaceCamera = false
 		laser.Color = ColorSequence.new(tracercolor, tracercolor)
@@ -1230,7 +1234,7 @@ local function CreateLightning(startPos, endPos)
 		laser.Width1 = 0.15
 		laser.Attachment0 = attach
 		laser.Attachment1 = attach2
-		lastloc = newPos + offset
+		lastloc = currentpos
 		delay(1.6, function()
 			for i = 0.5, 1.3, 0.2 do
 				wait()
@@ -1317,7 +1321,7 @@ _G.GetCattowareESP = function() --old method bc obfuscated code broke return :cr
     }
 end    
 
-return { --new method bc not obfuscated
+return {
     ["Settings"] = Settings,
     ["ApplyESP"] = ApplyESP,
     ["Colors"] = Colors,
