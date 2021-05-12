@@ -19,7 +19,6 @@ local word = Instance.new("TextLabel")
 local loader = {}
 loader.games = {}
 local ts = game:GetService("TweenService")
-local starttime = tick()
 
 load.Name = "load"
 load.Parent = game.CoreGui
@@ -150,7 +149,7 @@ spawn(function()
 	wait(.5)
 	ts:Create(word, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
 	wait(.5)
-	word.Text = "loaded " .. math.floor((tick() - starttime) * 10) / 10 .. " (secs)"
+	word.Text = "loaded " .. math.floor((tick() - getgenv().start_tick) * 10) / 10 .. " (secs)"
 	wait(.5)
 	if detectedGame then
 	    word.Text = "supported game!"
