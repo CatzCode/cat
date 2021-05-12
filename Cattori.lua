@@ -1,3 +1,4 @@
+_G.starttick = tick()
 if loaded then
 	return
 end
