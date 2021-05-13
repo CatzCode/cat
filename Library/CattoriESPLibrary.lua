@@ -16,7 +16,7 @@ end--ass
 
 local Settings = {
     Box2DEnabled = false,
-    HealthbarBox2D = true,
+    ShowHealthbar = false,
     TracerEnabled = false,
     NameEnabled = false,
     BoxEnabled = false,
@@ -40,6 +40,7 @@ local Settings = {
     HeadOff = Vector3.new(0,0.5,0),
     LegOff = Vector3.new(0,3,0)
 }
+
 local Colors
 Colors = {
     ["ChangeAll"] = function(color) 
@@ -551,21 +552,32 @@ local ApplyESP = function(getargs)
                         BoxLine4.Visible = false
                     end
 
+                    if Settings.ShowHealthbar then
+                        local size = Vector2.new(2000 / RootPosition.Z, HeadPosition.Y - LegPosition.Y)
+                        local pos = Vector2.new(RootPosition.X - size.X / 2, RootPosition.Y - size.Y / 2)
+
+                        HealthBar.Size = Vector2.new(2, (HeadPosition.Y - LegPosition.Y) / (MaxHealth / math.clamp(Health, 0, MaxHealth)))
+                        HealthBar.Position = Vector2.new(pos.X - 6, pos.Y + (1 / HealthBar.Size.Y))
+                        HealthBar.Color = Color3.fromRGB(255 - 255 / (MaxHealth / Health), 255 / (MaxHealth / Health), 0)
+                        HealthBar.Visible = true
+                        HealthBar.Thickness = Settings.Thickness
+                        HealthBar.Transparency = Settings.Transparency
+
+                        if MainPlayer.TeamColor == plr.TeamColor and Settings.TeamCheckEnabled then
+                            HealthBar.Visible = false
+                        else
+                            HealthBar.Visible = true
+                        end
+                    else
+                        HealthBar.Visible = false
+                    end
+
                     if Settings.Box2DEnabled then
                         Box.Size = Vector2.new(2000 / RootPosition.Z, HeadPosition.Y - LegPosition.Y)
                         Box.Position = Vector2.new(RootPosition.X - Box.Size.X / 2, RootPosition.Y - Box.Size.Y / 2)
                         Box.Visible = true
-        
-                        HealthBar.Size = Vector2.new(2, (HeadPosition.Y - LegPosition.Y) / (MaxHealth / math.clamp(Health, 0, MaxHealth)))
-                        HealthBar.Position = Vector2.new(Box.Position.X - 6, Box.Position.Y + (1 / HealthBar.Size.Y))
-                        HealthBar.Color = Color3.fromRGB(255 - 255 / (MaxHealth / Health), 255 / (MaxHealth / Health), 0)
-                        HealthBar.Visible = Settings.HealthbarBox2D
-
                         Box.Thickness = Settings.Thickness
-                        HealthBar.Thickness = Settings.Thickness
                         Box.Transparency = Settings.Transparency
-                        HealthBar.Transparency = Settings.Transparency
-
 
                         if ClosestBody and Closest and MainPlayer then
                             if Closest.Name == MainPlayer.Name then
@@ -590,18 +602,15 @@ local ApplyESP = function(getargs)
                         end
 
                         if MainPlayer.TeamColor == plr.TeamColor and Settings.TeamCheckEnabled then
-                            HealthBar.Visible = false
                             Box.Visible = false
                         else
                             Box.Visible = true
-                            if Settings.HealthbarBox2D then
-                                HealthBar.Visible = true
-                            end
                         end
                     else
                         Box.Visible = false
                         HealthBar.Visible = false
                     end
+
                     if Settings.TracerEnabled then
                         if plr.Character and plr.Character:FindFirstChild("Head") then
                             if Settings.TracerFrom == "Bottom" then
@@ -1307,19 +1316,6 @@ local function BulletImpact(p)
 end
 
 print("Using CattoriESP Library!")
-
-_G.GetCattowareESP = function() --old method bc obfuscated code broke return :cri:
-    return {
-        ["Settings"] = Settings,
-        ["ApplyESP"] = ApplyESP,
-        ["Colors"] = Colors,
-        ["Extra"] = {
-            ["CreateBulletTracer"] = BulletTracer,
-            ["CreateBulletImpact"] = BulletImpact,
-            ["CreateLightning"] = CreateLightning
-        }
-    }
-end    
 
 return {
     ["Settings"] = Settings,
