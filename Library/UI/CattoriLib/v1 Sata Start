@@ -1,0 +1,452 @@
+local CattoriLib = {}
+
+local TweenService = game:GetService("TweenService")
+local TextService = game:GetService("TextService")
+
+function CattoriLib:Window(title, togglekey)
+    local CattoriLibrary = Instance.new("ScreenGui")
+    local CattoriLib = Instance.new("Frame")
+    local UICorner13123 = Instance.new("UICorner")
+    local Divider = Instance.new("Frame")
+    local Title = Instance.new("TextLabel")
+    local UIPadding = Instance.new("UIPadding")
+    local TabHolder = Instance.new("ScrollingFrame")
+    local CORNERINSTANCE894234924 = Instance.new("UICorner")
+    local AD87UA89DU9ASDADASD = Instance.new("UIListLayout")
+    local ASIDA9SD0IASDU891E = Instance.new("UIPadding")
+    local Tabs = Instance.new("Folder")
+    
+    CattoriLibrary.Name = "نغمة عربية ساعات مكتبة الكاتور الفائز نيغا"
+    CattoriLibrary.Parent = game.CoreGui
+
+    CattoriLib.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+    CattoriLib.Parent = CattoriLibrary
+    CattoriLib.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+    CattoriLib.Position = UDim2.new(0.0203735158, 0, 0.646007121, 0)
+    CattoriLib.Size = UDim2.new(0, 408, 0, 285)
+    CattoriLib.Active = true
+    CattoriLib.Draggable = true
+
+    hotkey = togglekey
+    mouse = game.Players.LocalPlayer:GetMouse()
+    
+    hotkeyminiz = true
+    mouse.KeyDown:Connect(function(key)
+    if key == hotkey then
+    if hotkeyminiz == true then
+        for i,v in pairs(CattoriLib:GetDescendants()) do
+        if v:IsA('Frame') or v:IsA('TextButton') then
+            game.TweenService:Create(v, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                BackgroundTransparency = 1
+            }):Play()
+            wait(0.14)
+            v.Visible = false
+        end
+        end
+        for i,v in pairs(CattoriLib:GetDescendants()) do
+            if v:IsA('Label')  then
+                game.TweenService:Create(v, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                    BackgroundTransparency = 1
+                }):Play()
+                wait(0.14)
+                v.Visible = false
+            end
+            end
+        game.TweenService:Create(CattoriLib, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+            BackgroundTransparency = 1
+        }):Play()
+        wait(0.2)
+        CattoriLib.Visible = false
+        hotkeyminiz = false
+    else
+        CattoriLib.Visible = true
+        game.TweenService:Create(CattoriLib, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+            BackgroundTransparency = 0
+        }):Play()
+        wait(0.2)
+        for i,v in pairs(CattoriLib:GetDescendants()) do
+            v.Visible = true
+            if v:IsA('Frame') or v:IsA('TextButton') then
+                game.TweenService:Create(v, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                    BackgroundTransparency = 0
+                }):Play()
+            end
+            end
+            for i,v in pairs(CattoriLib:GetDescendants()) do
+                v.Visible = true
+                if v:IsA('Label')  then
+                    game.TweenService:Create(v, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                        TextTransparency = 0
+                    }):Play()
+                    wait(0.14)
+                end
+                end
+    end
+end
+hotkeyminiz = true
+    end)
+
+    UICorner13123.CornerRadius = UDim.new(0, 3)
+    UICorner13123.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+    UICorner13123.Parent = CattoriLib
+    
+    Divider.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+    Divider.Parent = CattoriLib
+    Divider.BackgroundColor3 = Color3.fromRGB(143, 69, 255)
+    Divider.BorderSizePixel = 0
+    Divider.Position = UDim2.new(0, 1, 0.0690000281, 1)
+    Divider.Size = UDim2.new(0, 407, 0, 1)
+    
+    Title.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+    Title.Parent = CattoriLib
+    Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Title.BackgroundTransparency = 1.000
+    Title.Size = UDim2.new(0, 408, 0, 20)
+    Title.Font = Enum.Font.GothamSemibold
+    Title.Text = title
+    Title.TextColor3 = Color3.fromRGB(148, 134, 255)
+    Title.TextSize = 14.000
+    Title.TextXAlignment = Enum.TextXAlignment.Left
+    
+    UIPadding.Parent = Title
+    UIPadding.PaddingLeft = UDim.new(0, 5)
+    UIPadding.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+
+    TabHolder.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+    TabHolder.Parent = CattoriLib
+    TabHolder.Active = true
+    TabHolder.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+    TabHolder.BorderColor3 = Color3.fromRGB(27, 42, 53)
+    TabHolder.Position = UDim2.new(0.00209643785, 0, 0.0760176778, 0)
+    TabHolder.Size = UDim2.new(0, 140, 0, 263)
+    TabHolder.ScrollBarThickness = 0
+    TabHolder.BorderSizePixel = 0
+    
+    AD87UA89DU9ASDADASD.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+    AD87UA89DU9ASDADASD.Parent = TabHolder
+    AD87UA89DU9ASDADASD.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    AD87UA89DU9ASDADASD.SortOrder = Enum.SortOrder.LayoutOrder
+    AD87UA89DU9ASDADASD.Padding = UDim.new(0, 4)
+    
+    ASIDA9SD0IASDU891E.Name = "अरबी टोन लाइब्रेरी अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाघण्टा एल्केटर विजेता नेगा"
+    ASIDA9SD0IASDU891E.Parent = TabHolder
+    ASIDA9SD0IASDU891E.PaddingTop = UDim.new(0, 5)
+    
+    Tabs.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+    Tabs.Parent = CattoriLib
+
+    local TabHandler = {}
+
+    function TabHandler:Tab(tabname)
+    
+local TabButton = Instance.new("TextButton")
+local _123123123123DADASD21143234 = Instance.new("UIPadding")
+local _12E423423423DFWER13 = Instance.new("UICorner")
+
+
+TabButton.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+TabButton.Parent = TabHolder
+TabButton.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+TabButton.BorderSizePixel = 0
+TabButton.Position = UDim2.new(0.010714286, 0, 0.0190114062, 0)
+TabButton.Size = UDim2.new(0, 132, 0, 19)
+TabButton.AutoButtonColor = false
+TabButton.Font = Enum.Font.Gotham
+TabButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+TabButton.TextSize = 13.000
+TabButton.TextXAlignment = Enum.TextXAlignment.Left
+TabButton.Text = tabname
+
+_123123123123DADASD21143234.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+_123123123123DADASD21143234.Parent = TabButton
+_123123123123DADASD21143234.PaddingLeft = UDim.new(0, 11)
+
+_12E423423423DFWER13.CornerRadius = UDim.new(0, 2)
+_12E423423423DFWER13.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+_12E423423423DFWER13.Parent = TabButton
+
+local TabFrame = Instance.new("ScrollingFrame")
+local UIListLayoutFrame = Instance.new("UIListLayout")
+local UIPadding = Instance.new("UIPadding")
+
+TabFrame.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+TabFrame.Parent = Tabs
+TabFrame.Active = true
+TabFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TabFrame.BackgroundTransparency = 1.000
+TabFrame.Position = UDim2.new(0.343137264, 0, 0.0736842081, 0)
+TabFrame.Size = UDim2.new(0, 268, 0, 264)
+TabFrame.ScrollBarThickness = 0
+TabFrame.Visible = false
+
+UIListLayoutFrame.Parent = TabFrame
+UIListLayoutFrame.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayoutFrame.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayoutFrame.Padding = UDim.new(0, 3)
+UIListLayoutFrame.Name = "цатторилиअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाбрари"
+
+UIPadding.Parent = TabFrame
+UIPadding.PaddingTop = UDim.new(0, 5)
+UIPadding.Name = "цатторилиअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाбрари"
+
+TabButton.MouseButton1Click:Connect(function()
+    for i,v in next, Tabs:GetChildren() do
+        v.Visible = false
+    end 
+    for i,v in next, TabHolder:GetChildren() do
+        if v:IsA('TextButton') then
+            game.TweenService:Create(v, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                TextColor3 = Color3.fromRGB(244, 244, 244)
+            }):Play()
+        end
+    end 
+    TabFrame.Visible = true 
+    game.TweenService:Create(TabButton, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+        TextColor3 = Color3.fromRGB(148, 134, 255)
+    }):Play()
+end)
+TabHolder.CanvasSize = UDim2.new(0, AD87UA89DU9ASDADASD.AbsoluteContentSize.X , 0, AD87UA89DU9ASDADASD.AbsoluteContentSize.y+9)
+
+local AssetHandler = {}
+function AssetHandler:SetStarterFrame()
+    TabFrame.Visible = true
+    game.TweenService:Create(TabButton, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+        TextColor3 = Color3.fromRGB(148, 134, 255)
+    }):Play()
+end
+
+function AssetHandler:Button(Text, callback)
+    local Button = Instance.new("TextButton")
+    local UICorner = Instance.new("UICorner")
+
+    Button.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+    Button.Parent = TabFrame
+    Button.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+    Button.Position = UDim2.new(0.0279850755, 0, 0.0189393945, 0)
+    Button.Size = UDim2.new(0, 253, 0, 22)
+    Button.AutoButtonColor = false
+    Button.Font = Enum.Font.Gotham
+    Button.TextColor3 = Color3.fromRGB(244, 244, 244)
+    Button.TextSize = 14.000
+    Button.Text = Text
+    
+    UICorner.CornerRadius = UDim.new(0, 2)
+    UICorner.Parent = Button
+    UICorner.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+
+    TabFrame.CanvasSize = UDim2.new(0, UIListLayoutFrame.AbsoluteContentSize.X , 0, UIListLayoutFrame.AbsoluteContentSize.y+3)
+    
+    Button.MouseButton1Click:Connect(function()
+        callback()
+    game.TweenService:Create(Button, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+        TextTransparency = 1}):Play()
+        game.TweenService:Create(Button, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+        TextColor3 = Color3.fromRGB(148, 134, 255)}):Play()
+        
+       wait(0.03)
+       game.TweenService:Create(Button, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+        TextColor3 = Color3.fromRGB(244, 244, 244)}):Play()
+        game.TweenService:Create(Button, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+            TextTransparency = 0}):Play()
+    end)
+end
+function AssetHandler:Toggle(text, callback)
+
+    local SliderButton = Instance.new("TextButton")
+    local UICorner = Instance.new("UICorner")
+    local UIPadding = Instance.new("UIPadding")
+    local SliderBackground = Instance.new("Frame")
+    local UICorner_2 = Instance.new("UICorner")
+    local SliderCircle = Instance.new("Frame")
+    local UICorner_3 = Instance.new("UICorner")
+    local UIPadding_2 = Instance.new("UIPadding")
+    
+    SliderButton.Name = "अरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगा"
+    SliderButton.Parent = TabFrame
+    SliderButton.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+    SliderButton.Position = UDim2.new(0.0279850755, 0, 0.102272727, 0)
+    SliderButton.Size = UDim2.new(0, 253, 0, 29)
+    SliderButton.AutoButtonColor = false
+    SliderButton.Font = Enum.Font.Gotham
+    SliderButton.TextColor3 = Color3.fromRGB(244, 244, 244)
+    SliderButton.TextSize = 14.000
+    SliderButton.TextXAlignment = Enum.TextXAlignment.Left
+    SliderButton.Text = text
+
+    UICorner.CornerRadius = UDim.new(0, 2)
+    UICorner.Parent = SliderButton
+    UICorner.Name = "цатторилиअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाбрари"
+
+    UIPadding.Parent = SliderButton
+    UIPadding.PaddingLeft = UDim.new(0, 7)
+    UIPadding.Name = "цатторилиअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाбрари"
+
+    SliderBackground.Name = "цатторилиअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाбрари"
+    SliderBackground.Parent = SliderButton
+    SliderBackground.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+    SliderBackground.Position = UDim2.new(0.806324124, 0, 0.169279009, 0)
+    SliderBackground.Size = UDim2.new(0, 40, 0, 18)
+    
+    UICorner_2.Parent = SliderBackground
+    
+    SliderCircle.Name = "цаअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाтторилибрари"
+    SliderCircle.Parent = SliderBackground
+    SliderCircle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    SliderCircle.Position = UDim2.new(0, 0, 0.5, -6)
+    SliderCircle.Size = UDim2.new(0, 13, 0, 13)
+    
+    UICorner_3.Parent = SliderCircle
+    UICorner_3.Name = "цатторилиअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाбрари"
+
+    UIPadding_2.Parent = SliderBackground
+    UIPadding_2.PaddingLeft = UDim.new(0, 4)
+    UIPadding_2.Name = "цатторилиअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाбрари"
+    local tog = false
+
+        SliderButton.MouseButton1Click:Connect(function()
+            tog = not tog
+            callback(tog)
+            if tog then 
+            game.TweenService:Create(UIPadding_2, TweenInfo.new(0.10, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                PaddingLeft = UDim.new(0, 23)
+            }):Play()
+            game.TweenService:Create(SliderBackground, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                BackgroundColor3 = Color3.fromRGB(148, 134, 255)
+            }):Play()
+            else
+            game.TweenService:Create(UIPadding_2, TweenInfo.new(0.10, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                PaddingLeft = UDim.new(0, 4)
+            }):Play()
+            game.TweenService:Create(SliderBackground, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+            }):Play()
+            end
+        end)
+        TabFrame.CanvasSize = UDim2.new(0, UIListLayoutFrame.AbsoluteContentSize.X , 0, UIListLayoutFrame.AbsoluteContentSize.y+3)
+    
+end
+function AssetHandler:Slider(text, minvalue, maxvalue, callback)
+
+    local SliderAsset = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local Title = Instance.new("TextLabel")
+    local UIPadding = Instance.new("UIPadding")
+    local TextLabel = Instance.new("TextLabel")
+    local UIPadding_2 = Instance.new("UIPadding")
+    local Slider = Instance.new("TextButton")
+    local UICorner_2 = Instance.new("UICorner")
+    local SlideFrame = Instance.new("Frame")
+    local UICorner_3 = Instance.new("UICorner")
+    local UIGradient = Instance.new("UIGradient")
+    
+    SliderAsset.Name = "цатторилиअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाбрари"
+    SliderAsset.Parent = TabFrame
+    SliderAsset.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+    SliderAsset.Position = UDim2.new(0.0279850755, 0, 0.25, 0)
+    SliderAsset.Size = UDim2.new(0, 253, 0, 44)
+    
+    UICorner.CornerRadius = UDim.new(0, 2)
+    UICorner.Parent = SliderAsset
+    
+    Title.Name = "цатторилиअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाбрари"
+    Title.Parent = SliderAsset
+    Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Title.BackgroundTransparency = 1.000
+    Title.Size = UDim2.new(0, 208, 0, 17)
+    Title.Font = Enum.Font.Gotham
+    Title.TextColor3 = Color3.fromRGB(244, 244, 244)
+    Title.TextSize = 14.000
+    Title.TextXAlignment = Enum.TextXAlignment.Left
+    Title.Text = text
+
+    UIPadding.Parent = Title
+    UIPadding.PaddingLeft = UDim.new(0, 10)
+    UIPadding.PaddingTop = UDim.new(0, 6)
+    
+    TextLabel.Parent = SliderAsset
+    TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    TextLabel.BackgroundTransparency = 1.000
+    TextLabel.Position = UDim2.new(0.782608688, 0, 0, 0)
+    TextLabel.Size = UDim2.new(0, 55, 0, 17)
+    TextLabel.Font = Enum.Font.Gotham
+    TextLabel.TextColor3 = Color3.fromRGB(244, 244, 244)
+    TextLabel.TextScaled = true
+    TextLabel.TextSize = 14.000
+    TextLabel.TextWrapped = true
+    TextLabel.Text = minvalue
+    
+    UIPadding_2.Parent = TextLabel
+    UIPadding_2.PaddingTop = UDim.new(0, 6)
+    
+    Slider.Name = "цатторилиअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाбрари"
+    Slider.Parent = SliderAsset
+    Slider.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+    Slider.Position = UDim2.new(0.0320000015, 0, 0.546999991, 0)
+    Slider.Size = UDim2.new(0, 237, 0, 13)
+    Slider.AutoButtonColor = false
+    Slider.Font = Enum.Font.SourceSans
+    Slider.Text = ""
+    Slider.TextColor3 = Color3.fromRGB(0, 0, 0)
+    Slider.TextSize = 14.000
+    
+    UICorner_2.CornerRadius = UDim.new(0, 2)
+    UICorner_2.Parent = Slider
+    
+    SlideFrame.Name = "цатторилиअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाअरबी टोन लाइब्रेरी घण्टा एल्केटर विजेता नेगाбрари"
+    SlideFrame.Parent = Slider
+    SlideFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    SlideFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
+    SlideFrame.Position = UDim2.new(0, 0, 0.5, -6)
+    SlideFrame.Size = UDim2.new(0, 0, 0, 13)
+    
+    UICorner_3.CornerRadius = UDim.new(0, 2)
+    UICorner_3.Parent = SlideFrame
+    
+    UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(93, 39, 131)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(122, 70, 255))}
+    UIGradient.Rotation = 180
+    UIGradient.Parent = SlideFrame
+
+    minvalue = minvalue or 0
+    maxvalue = maxvalue or 100
+     
+    callback = callback or function() end
+     
+    local mouse = game.Players.LocalPlayer:GetMouse()
+    local uis = game:GetService("UserInputService")
+    local Value;
+
+    Slider.MouseButton1Down:Connect(function()
+        Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 237) * SlideFrame.AbsoluteSize.X) + tonumber(minvalue)) or 0
+        pcall(function()
+            callback(Value)
+        end)
+        SlideFrame.Size = UDim2.new(0, math.clamp(mouse.X - SlideFrame.AbsolutePosition.X, 0, 237), 0, 13)
+        moveconnection = mouse.Move:Connect(function()
+            TextLabel.Text = Value
+            Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 237) * SlideFrame.AbsoluteSize.X) + tonumber(minvalue))
+            pcall(function()
+                callback(Value)
+                TextLabel.Text = Value
+            end)
+            SlideFrame.Size = UDim2.new(0, math.clamp(mouse.X - SlideFrame.AbsolutePosition.X, 0, 237), 0, 13)
+        end)
+        releaseconnection = uis.InputEnded:Connect(function(Mouse)
+            if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
+                Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 318) * SlideFrame.AbsoluteSize.X) + tonumber(minvalue))
+                pcall(function()
+                    callback(Value)
+                end)
+               SlideFrame.Size = UDim2.new(0, math.clamp(mouse.X - SlideFrame.AbsolutePosition.X, 0, 237), 0, 13)
+                moveconnection:Disconnect()
+                releaseconnection:Disconnect()
+            end
+        end)
+    end)
+    TabFrame.CanvasSize = UDim2.new(0, UIListLayoutFrame.AbsoluteContentSize.X , 0, UIListLayoutFrame.AbsoluteContentSize.y+3)
+end
+return AssetHandler
+    end
+    
+    return TabHandler
+end
+return CattoriLib
