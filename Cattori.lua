@@ -84,6 +84,7 @@ word.TextTransparency = 1.000
 word.Text = "nya ~"
 word.TextColor3 = Color3.fromRGB(255, 255, 255)
 word.TextSize = 19.000
+word.TextScaled = true
 
 function loader:addGame(id, name, url)
 	loader.games[tostring(id)] = {name = name, loadstring = url}
@@ -145,7 +146,7 @@ spawn(function()
 	wait(.5)
 	ts:Create(word, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
 	wait(.5)
-	word.Text = "loaded " .. math.floor((tick() - getgenv().start_tick) * 10) / 10 .. " (secs)"
+	word.Text = "loaded in " .. math.floor((tick() - getgenv().start_tick) * 10) / 10 .. " seconds."
 	wait(.5)
 	if detectedGame then
 		word.Text = "supported game! loading ".. detectedGame.name
