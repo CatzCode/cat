@@ -1,11 +1,4 @@
-if loaded then
-	return
-end
-
-pcall(function()
-	getgenv().loaded = true
-	getgenv().start_tick = tick()
-end)
+getgenv().start_tick = tick()
 
 local load = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
@@ -95,7 +88,7 @@ function loader:detectGame()
 	if detectedGame then
 		return detectedGame
 	else
-		print("unsupported")
+		return
 	end
 end
 
@@ -143,34 +136,37 @@ spawn(function()
 	ts:Create(cat, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
 	ts:Create(ori, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
 	ts:Create(Top, TweenInfo.new(0.5), {BackgroundTransparency = 0}):Play()
-	wait(.5)
 	ts:Create(word, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
-	wait(.5)
+    
+    wait(0.5)
+    
 	word.Text = "loaded in " .. math.floor((tick() - getgenv().start_tick) * 10) / 10 .. " seconds."
-	wait(.5)
-	if detectedGame then
-		word.Text = "supported game! loading ".. detectedGame.name
-	else
-		word.Text = "we are currently working on universal..."
-	end
+
+    if getgenv().loaded then
+        word.Text = "the script is already loaded!"
+    else
+        getgenv().loaded = true
+        if detectedGame then
+            word.Text = "supported game! loading ".. detectedGame.name
+            if not pcall(function()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/CatzCode/cat/main/Games/".. detectedGame.loadstring ..".lua"))()
+            end) then 
+                word.Text = "the script failed to load!"
+            end
+        else
+            word.Text = "we are currently working on universal..."
+        end
+    end
+
 	wait(1)
+    
 	cat.Visible = false
 	ori.Visible = false
 	word.Visible = false
 	Top.Visible = false
 	Main:TweenSize(UDim2.new(0, 0, 0, 60), Enum.EasingDirection.In, Enum.EasingStyle.Linear, 1, false)
+    
 	wait(1)
-	load:Destroy()
 
-	if detectedGame then
-		if not ({pcall(function()
-			local Elements = {"Line", "Text", "Image", "Circle", "Square", "Quad", "Triangle"}
-			for i, v in ipairs(Elements) do
-				Drawing.new(v):Remove()
-			end
-		end)})[1] then
-			Drawing = nil
-		end
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/CatzCode/cat/main/Games/".. detectedGame.loadstring ..".lua"))()
-	end
+	load:Destroy()
 end)
