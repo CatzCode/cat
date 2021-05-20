@@ -52,7 +52,9 @@ local getFramework = function()
                     framework.publicsettings = v
                 end
             end
-            wait(1)
+            if tries > 0 then
+                wait(1)
+            end
         until tries >= 10 or (framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
     end)
     return framework, success and (framework.getgunlist and framework.particle and framework.sound and framework.character and framework.network and framework.gamelogic and framework.camera and framework.effects and framework.uieffects and framework.replication and framework.publicsettings)
