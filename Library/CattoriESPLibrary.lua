@@ -371,7 +371,7 @@ local ApplyESP = function(getargs)
 
                             ChamsTorso.Parent = _torso
                             ChamsTorso.Adornee = _torso
-                            ChamsTorso.Size = (game.PlaceId == 292439477 and not getgenv().showhitbox) and Vector3.new(2, 2, 1) or _torso.Size
+                            ChamsTorso.Size = (game.PlaceId == 292439477 and not _G.showhitbox) and Vector3.new(2, 2, 1) or _torso.Size
                             ChamsTorso.Visible = teamcheck
                             ChamsTorso.Transparency = (1 - Settings.Transparency)
                             
