@@ -736,16 +736,26 @@ local ApplyESP = function(getargs)
                     end
                     if Settings.NameEnabled then
                         print(RootPosition, Box.Size)
-                        Name.Text = tostring("["..math.floor(Distance).."] "..MainPlayer.Name.." ["..math.floor(MaxHealth).."/"..math.floor(Health).."]")
-                        Name.Position = Vector2.new(RootPosition.X - Box.Size.X / 2, RootPosition.Y - Box.Size.Y / 2)
-                        Name.Size = Settings.TextSize
-                        Name.Transparency = Settings.Transparency
-                        Name.Visible = true
-                        Name.Outline = Settings.TextOutlineEnabled
-
-                        if ClosestBody and Closest and MainPlayer then
-                            if Closest.Name == MainPlayer.Name then
-                                Name.Color = Color3.fromRGB(255, 255, 255)
+                        pcall(function ()
+                            Name.Text = tostring("["..math.floor(Distance).."] "..MainPlayer.Name.." ["..math.floor(MaxHealth).."/"..math.floor(Health).."]")
+                            Name.Position = Vector2.new(RootPosition.X - (Box.Size.X / 2), RootPosition.Y - (Box.Size.Y / 2))
+                            Name.Size = Settings.TextSize
+                            Name.Transparency = Settings.Transparency
+                            Name.Visible = true
+                            Name.Outline = Settings.TextOutlineEnabled
+    
+                            if ClosestBody and Closest and MainPlayer then
+                                if Closest.Name == MainPlayer.Name then
+                                    Name.Color = Color3.fromRGB(255, 255, 255)
+                                else
+                                    if Colors.RainbowEnabled then
+                                        Name.Color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+                                    elseif Colors.UseTeamColor then
+                                        Name.Color = MainPlayer.TeamColor.Color
+                                    else
+                                        Name.Color = Colors.NameESPColor
+                                    end
+                                end
                             else
                                 if Colors.RainbowEnabled then
                                     Name.Color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
@@ -755,21 +765,13 @@ local ApplyESP = function(getargs)
                                     Name.Color = Colors.NameESPColor
                                 end
                             end
-                        else
-                            if Colors.RainbowEnabled then
-                                Name.Color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
-                            elseif Colors.UseTeamColor then
-                                Name.Color = MainPlayer.TeamColor.Color
+    
+                            if MainPlayer.TeamColor == plr.TeamColor and Settings.TeamCheckEnabled then
+                                Name.Visible = false
                             else
-                                Name.Color = Colors.NameESPColor
-                            end
-                        end
-
-                        if MainPlayer.TeamColor == plr.TeamColor and Settings.TeamCheckEnabled then
-                            Name.Visible = false
-                        else
-                            Name.Visible = true
-                        end
+                                Name.Visible = true
+                            end            
+                        end)
                     else
                         Name.Visible = false
                     end
