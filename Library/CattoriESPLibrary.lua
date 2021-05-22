@@ -735,7 +735,7 @@ local ApplyESP = function(getargs)
                         Viewline.Visible = false
                     end
                     if Settings.NameEnabled then
-                        print(RootPosition, Box.Size)
+                        print(RootPosition, Box)
                         pcall(function ()
                             Name.Text = tostring("["..math.floor(Distance).."] "..MainPlayer.Name.." ["..math.floor(MaxHealth).."/"..math.floor(Health).."]")
                             Name.Position = Vector2.new(RootPosition.X - (Box.Size.X / 2), RootPosition.Y - (Box.Size.Y / 2))
