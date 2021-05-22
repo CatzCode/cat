@@ -340,11 +340,10 @@ local ApplyESP = function(getargs)
             if ESPPart.Parent:FindFirstChild("Head") then
                 local Vector, onScreen = camera:worldToViewportPoint(ESPPart.Position)
                 local Distance = (camera.CFrame.p - ESPPart.Position).Magnitude
-                local RootPart = ESPPart
                 local Head = ESPPart.Parent:FindFirstChild("Head")
-                local RootPosition, RootVis = worldToViewportPoint(camera, RootPart.Position)
-                local HeadPosition = worldToViewportPoint(camera, Head.Position + Settings.HeadOff)
-                local LegPosition = worldToViewportPoint(camera, RootPart.Position - Settings.LegOff)
+                local RootPosition, RootVis = camera:WorldToViewportPoint(ESPPart.Position)
+                local HeadPosition = camera:WorldToViewportPoint(Head.Position + Settings.HeadOff)
+                local LegPosition = camera:WorldToViewportPoint(ESPPart.Position - Settings.LegOff)
                 local offsetCFrame = CFrame.new(0, 0, -Settings.Length)
                 local headpos, OnScreen = camera:WorldToViewportPoint(Head.Position)
                 local dir = Head.CFrame:ToWorldSpace(offsetCFrame)
