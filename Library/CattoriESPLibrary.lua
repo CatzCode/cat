@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 --if u skid then u gae
 local workspace = game:GetService("Workspace")
 local camera = workspace.CurrentCamera
@@ -305,7 +306,8 @@ local ApplyESP = function(getargs)
         end
         if Settings.FOVEnabled then
             FOVCircle.Visible = true
-            FOVCircle.Position = Vector2.new(mouse.X, mouse.Y + 36)
+            local mousepos = camera:WorldToViewportPoint(mouse.Hit.p)
+            FOVCircle.Position = Vector2.new(mousepos.X, mousepos.Y)
             FOVCircle.Thickness = Settings.Thickness
             FOVCircle.NumSides = Settings.RoundedCorner
             FOVCircle.Radius = Settings.FOVSize
@@ -365,37 +367,61 @@ local ApplyESP = function(getargs)
                             end
                             ChamsHead.Parent = _head
                             ChamsHead.Adornee = _head
-                            ChamsHead.Size = game.PlaceId == 292439477 and Vector3.new(1, 1, 1) or _head.Size
+                            if game.PlaceId == 292439477 then
+                                ChamsHead.Size = Vector3.new(1, 1, 1)
+                            else
+                                ChamsHead.Size = _head.Size
+                            end
                             ChamsHead.Visible = teamcheck
                             ChamsHead.Transparency = (1 - Settings.Transparency)
 
                             ChamsTorso.Parent = _torso
                             ChamsTorso.Adornee = _torso
-                            ChamsTorso.Size = (game.PlaceId == 292439477 and not getgenv().Settings.Visuals.ShowHitbox) and Vector3.new(2, 2, 1) or _torso.Size
+                            if game.PlaceId == 292439477 and not _G.ShowHitbox then
+                                ChamsTorso.Size = Vector3.new(2, 2, 1)
+                            else
+                                ChamsTorso.Size = _torso.Size
+                            end
                             ChamsTorso.Visible = teamcheck
                             ChamsTorso.Transparency = (1 - Settings.Transparency)
                             
                             ChamsLeftArm.Parent = _leftarm
                             ChamsLeftArm.Adornee = _leftarm
-                            ChamsLeftArm.Size = game.PlaceId == 292439477 and Vector3.new(1, 2, 1) or _leftarm.Size
+                            if game.PlaceId == 292439477 then
+                                ChamsLeftArm.Size = Vector3.new(1, 2, 1)
+                            else
+                                ChamsLeftArm.Size = _leftarm.Size
+                            end
                             ChamsLeftArm.Visible = teamcheck
                             ChamsLeftArm.Transparency = (1 - Settings.Transparency)
                             
                             ChamsRightArm.Parent = _rightarm
                             ChamsRightArm.Adornee = _rightarm
-                            ChamsRightArm.Size = game.PlaceId == 292439477 and Vector3.new(1, 2, 1) or _rightarm.Size
+                            if game.PlaceId == 292439477 then
+                                ChamsRightArm.Size = Vector3.new(1, 2, 1)
+                            else
+                                ChamsRightArm.Size = _rightarm.Size
+                            end
                             ChamsRightArm.Visible = teamcheck
                             ChamsRightArm.Transparency = (1 - Settings.Transparency)
                             
                             ChamsRightLeg.Parent = _rightleg
                             ChamsRightLeg.Adornee = _rightleg
-                            ChamsRightLeg.Size = game.PlaceId == 292439477 and Vector3.new(1, 2, 1) or _rightleg.Size
+                            if game.PlaceId == 292439477 then
+                                ChamsRightLeg.Size = Vector3.new(1, 2, 1)
+                            else
+                                ChamsRightLeg.Size = _rightleg.Size
+                            end
                             ChamsRightLeg.Visible = teamcheck
                             ChamsRightLeg.Transparency = (1 - Settings.Transparency)
                             
                             ChamsLeftLeg.Parent = _leftleg
                             ChamsLeftLeg.Adornee = _leftleg
-                            ChamsLeftLeg.Size = game.PlaceId == 292439477 and Vector3.new(1, 2, 1) or _leftleg.Size
+                            if game.PlaceId == 292439477 then
+                                ChamsLeftLeg.Size = Vector3.new(1, 2, 1)
+                            else
+                                ChamsLeftLeg.Size = _leftleg.Size
+                            end
                             ChamsLeftLeg.Visible = teamcheck
                             ChamsLeftLeg.Transparency = (1 - Settings.Transparency)
 
@@ -466,7 +492,7 @@ local ApplyESP = function(getargs)
                     end
 
                     if Settings.BoxEnabled then
-                        local Size = Vector2.new(2, 3) * (game.PlaceId == 292439477 and 1 or ESPPart.Parent.Head.Size.Y)
+                        local Size = Vector2.new(2, 3)
                         local Top1 = ESPPart.CFrame * CFrame.new(Size.X, Size.Y, 0)
                         Top1 = camera:worldToViewportPoint(Top1.p)
                         local Top2 = ESPPart.CFrame * CFrame.new(-Size.X, Size.Y, 0)
@@ -748,8 +774,7 @@ local ApplyESP = function(getargs)
                         Name.Visible = false
                     end
                     if Settings.Box3DEnabled then
-                        local Scale = (game.PlaceId == 292439477 and 1 or ESPPart.Parent.Head.Size.Y) / 2
-                        local Size = Vector3.new(2, 3, 1.5) * (Scale * 2)
+                        local Size = Vector3.new(2, 3, 1.5)
 
                         local Top1 = camera:WorldToViewportPoint((ESPPart.CFrame * CFrame.new(-Size.X, Size.Y, -Size.Z)).p)
                         local Top2 = camera:WorldToViewportPoint((ESPPart.CFrame * CFrame.new(-Size.X, Size.Y, Size.Z)).p)
