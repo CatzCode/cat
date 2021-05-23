@@ -306,8 +306,7 @@ local ApplyESP = function(getargs)
         end
         if Settings.FOVEnabled then
             FOVCircle.Visible = true
-            local mousepos = camera:WorldToViewportPoint(mouse.Hit.p)
-            FOVCircle.Position = Vector2.new(mousepos.X, mousepos.Y)
+            FOVCircle.Position = Vector2.new(mouse.X, mouse.Y + 36)
             FOVCircle.Thickness = Settings.Thickness
             FOVCircle.NumSides = Settings.RoundedCorner
             FOVCircle.Radius = Settings.FOVSize
