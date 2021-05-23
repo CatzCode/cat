@@ -51,8 +51,7 @@ local imagecache = {}
 local uis = game:GetService('UserInputService')
 local rs = game:GetService("RunService")
 local plr = game.Players.LocalPlayer
-local zoom = (workspace.CurrentCamera.CoordinateFrame.p - plr.Character.Head.Position).magnitude
-local maxzoom = plr.CameraMaxZoomDistance
+local max = plr.CameraMaxZoomDistance
 local minzoom = plr.CameraMinZoomDistance
 --
 images.Cursor = 'https://i.imgur.com/e2RzMxU.png'
@@ -567,16 +566,6 @@ end
 --
 library.updatecursor()
 --//
-library.disablemovement = function()
-	zoom = (workspace.CurrentCamera.CoordinateFrame.p - plr.Character.Head.Position).magnitude
-	plr.CameraMaxZoomDistance = zoom
-	plr.CameraMinZoomDistance = zoom
-end
---
-library.enablemovement = function()
-	plr.CameraMaxZoomDistance = maxzoom
-	plr.CameraMinZoomDistance = minzoom
-end
 --
 library.opentab = function(tab)
 	for i,v in pairs(tabs) do
@@ -1496,7 +1485,6 @@ uis.InputBegan:Connect(function(input)
 		if allowed then
 			currentkeybind.value.Text = character
 			keybindin = false
-			library.enablemovement()
 			currentkeybind.button.Color = Color3.fromRGB(20,20,20)
 			currentkeybind.callback(currentkeybind.value.Text)
 			currentkeybind = nil
@@ -1633,7 +1621,6 @@ uis.InputBegan:Connect(function(input)
 		end
 		if textboxin and currenttextbox and currenttextbox.label.Text ~= "" and currenttextbox.label.Text ~= nil then
 			textboxin = false
-			library.enablemovement()
 			currenttextbox.button.Color = Color3.fromRGB(20,20,20)
 			currenttextbox.callback(currenttextbox.label.Text)
 			currenttextbox.label.Text = currenttextbox.original
@@ -1648,7 +1635,6 @@ uis.InputBegan:Connect(function(input)
 			};
 			if mouseOver(vals) and textboxin == false then
 				if v.open then
-					library.disablemovement()
 					textboxin = true
 					v.label.Text = ""
 					currenttextbox = v
@@ -1665,7 +1651,6 @@ uis.InputBegan:Connect(function(input)
 			};
 			if mouseOver(vals) and textboxin == false then
 				if v.open then
-					library.disablemovement()
 					keybindin = true
 					currentkeybind = v
 					v.button.Color = Color3.fromRGB(35, 35, 35)
@@ -1840,7 +1825,6 @@ uis.InputBegan:Connect(function(input)
 		if input.KeyCode == Enum.KeyCode.Return then
 			if textboxin and currenttextbox then
 				textboxin = false
-				library.enablemovement()
 				currenttextbox.button.Color = Color3.fromRGB(20,20,20)
 				currenttextbox.callback(currenttextbox.label.Text)
 				currenttextbox.label.Text = currenttextbox.original
@@ -1884,7 +1868,6 @@ uis.InputBegan:Connect(function(input)
 			if allowed then
 				currentkeybind.value.Text = character
 				keybindin = false
-				library.enablemovement()
 				currentkeybind.button.Color = Color3.fromRGB(20,20,20)
 				currentkeybind.callback(currentkeybind.value.Text)
 				currentkeybind = nil
