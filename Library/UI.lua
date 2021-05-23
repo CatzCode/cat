@@ -51,9 +51,6 @@ local imagecache = {}
 local uis = game:GetService('UserInputService')
 local rs = game:GetService("RunService")
 local plr = game.Players.LocalPlayer
-local zoom = (workspace.CurrentCamera.CoordinateFrame.p - plr.Character.Head.Position).magnitude
-local maxzoom = plr.CameraMaxZoomDistance
-local minzoom = plr.CameraMinZoomDistance
 --
 images.Cursor = 'https://i.imgur.com/e2RzMxU.png'
 --
