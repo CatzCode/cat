@@ -1338,7 +1338,7 @@ local function BulletImpact(p)
     impactBoxHandle.Parent = impact
     impactBoxHandle.Adornee = impact
     impactBoxHandle.Size = impact.Size
-    impactBoxHandle.Visible = impact.Visible
+    impactBoxHandle.Visible = true
     impactBoxHandle.Color3 = impact.Color
     
     delay(1.6, function()
