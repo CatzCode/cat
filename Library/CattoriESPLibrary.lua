@@ -1325,7 +1325,7 @@ local function BulletImpact(p)
     local impact = Instance.new("Part", game.Workspace)
     impact.Color = impactcolor
     impact.Size = Vector3.new(0.55, 0.55, 0.55)
-    impact.Transparency = 0.5
+    impact.Transparency = 0
     impact.Position = p
     impact.Anchored = true
     impact.CanCollide = false
