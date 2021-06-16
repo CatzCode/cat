@@ -1325,14 +1325,25 @@ local function BulletImpact(p)
     local impact = Instance.new("Part", game.Workspace)
     impact.Color = impactcolor
     impact.Size = Vector3.new(0.55, 0.55, 0.55)
-    impact.Material = Enum.Material.ForceField
+    impact.Transparency = 0.5
     impact.Position = p
     impact.Anchored = true
     impact.CanCollide = false
+                                
+    local impactBoxHandle = Instance.new("BoxHandleAdornment")
+    impactBoxHandle.Transparency = impact.Transparency
+    impactBoxHandle.ZIndex = 5
+    impactBoxHandle.AlwaysOnTop = true
+    impactBoxHandle.Parent = impact
+    impactBoxHandle.Adornee = impact
+    impactBoxHandle.Size = impact.Size
+    impactBoxHandle.Visible = true
+    
     delay(1.6, function()
         for i = 0.5, 1.3, 0.2 do
             wait()
             impact.Transparency = NumberSequence.new(i)
+            impactBoxHandle.Transparency = impact.Transparency
         end
         impact:Destroy()
     end)
