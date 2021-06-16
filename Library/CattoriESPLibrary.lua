@@ -1322,6 +1322,7 @@ local function BulletImpact(p)
     if Colors.RainbowEnabled then
         impactcolor = Color3.fromHSV(tick() % 5 / 5, 1, 1)
     end
+
     local impact = Instance.new("Part", game.Workspace)
     impact.Color = impactcolor
     impact.Size = Vector3.new(0.55, 0.55, 0.55)
@@ -1337,7 +1338,8 @@ local function BulletImpact(p)
     impactBoxHandle.Parent = impact
     impactBoxHandle.Adornee = impact
     impactBoxHandle.Size = impact.Size
-    impactBoxHandle.Visible = true
+    impactBoxHandle.Visible = impact.Visible
+    impactBoxHandle.Color3 = impact.Color
     
     delay(1.6, function()
         for i = 0.5, 1.3, 0.2 do
