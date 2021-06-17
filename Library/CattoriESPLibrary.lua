@@ -1283,7 +1283,7 @@ local function BulletTracer(p1, p2)
     if Colors.RainbowEnabled then
         tracercolor = Color3.fromHSV(tick() % 5 / 5, 1, 1)
     end
-    local colorSequence = ColorSequence.new(tracercolor, Color3.fromRGB(255, 255, 255))
+    local colorSequence = ColorSequence.new(tracercolor, tracercolor)
     local startoftracer = Instance.new("Part", game.Workspace.Map)
     local endoftracer = Instance.new("Part", game.Workspace.Map)
     local attach = Instance.new("Attachment", startoftracer)
@@ -1322,7 +1322,7 @@ local function CreateLaser(p1, p2)
     if Colors.RainbowEnabled then
         tracercolor = Color3.fromHSV(tick() % 5 / 5, 1, 1)
     end
-    local colorSequence = ColorSequence.new(tracercolor, Color3.fromRGB(255, 255, 255))
+    local colorSequence = ColorSequence.new(tracercolor, tracercolor)
     local startoftracer = Instance.new("Part", game.Workspace.Map)
     local endoftracer = Instance.new("Part", game.Workspace.Map)
     local attach = Instance.new("Attachment", startoftracer)
