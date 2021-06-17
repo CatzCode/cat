@@ -1317,6 +1317,50 @@ local function BulletTracer(p1, p2)
     end)
 end
 
+local function CreateLaser(p1, p2)
+    local tracercolor = Colors.BulletTracerColor
+    if Colors.RainbowEnabled then
+        tracercolor = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+    end
+    local colorSequence = ColorSequence.new(tracercolor, Color3.fromRGB(255, 255, 255))
+    local startoftracer = Instance.new("Part", game.Workspace.Map)
+    local endoftracer = Instance.new("Part", game.Workspace.Map)
+    local attach = Instance.new("Attachment", startoftracer)
+    local attach2 = Instance.new("Attachment", endoftracer)
+    local laser = Instance.new("Beam", startoftracer)
+    startoftracer.Size = Vector3.new(1, 1, 1)
+    startoftracer.Transparency = 1
+    startoftracer.CanCollide = false
+    startoftracer.CFrame = CFrame.new(p1)
+    startoftracer.Anchored = true
+    endoftracer.Size = Vector3.new(1, 1, 1)
+    endoftracer.Transparency = 1
+    endoftracer.CanCollide = false
+    endoftracer.CFrame = CFrame.new(p2)
+    endoftracer.Anchored = true
+    laser.FaceCamera = true
+    laser.Color = colorSequence
+    laser.LightEmission = 1
+    laser.LightInfluence = 0
+    laser.Width0 = 1.5
+    laser.Width1 = 1.5
+    laser.Texture = "rbxassetid://6967216107"
+    laser.TextureLength = 19
+    laser.TextureMode = Enum.TextureMode.Static
+    laser.TextureSpeed = 1
+    laser.Transparency = 0
+    laser.Attachment0 = attach
+    laser.Attachment1 = attach2
+    delay(1.6, function()
+        for i = 0.5, 1.3, 0.2 do
+            wait()
+            laser.Transparency = NumberSequence.new(i)
+        end
+        startoftracer:Destroy()
+        endoftracer:Destroy()
+    end)
+end
+
 local function BulletImpact(p)
     local impactcolor = Colors.BulletImpactColor
     if Colors.RainbowEnabled then
@@ -1360,6 +1404,7 @@ return {
     ["Extra"] = {
         ["CreateBulletTracer"] = BulletTracer,
         ["CreateBulletImpact"] = BulletImpact,
-        ["CreateLightning"] = CreateLightning
+        ["CreateLightning"] = CreateLightning,
+        ["CreateLaser"] = CreateLaser
     }
 }
