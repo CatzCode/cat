@@ -1348,7 +1348,7 @@ local function CreateLaser(p1, p2)
     laser.TextureLength = 19
     laser.TextureMode = Enum.TextureMode.Static
     laser.TextureSpeed = 1
-    laser.Transparency = 0
+    laser.Transparency = NumberSequence.new(0)
     laser.Attachment0 = attach
     laser.Attachment1 = attach2
     delay(1.6, function()
